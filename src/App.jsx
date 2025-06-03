@@ -14,6 +14,7 @@ import ResidentialAdd from './SignUpComp/ResidentialAdd';
 import Auth from './pages/Auth';
 import Dashboard from './pages/Dashboard';
 import InvestorsSignup from './InvestorsSignup';
+import Products from './pages/Products';
 function App() {
   
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/services" element={<Services />} />
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
