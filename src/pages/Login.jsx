@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import bgFarm from '../assets/wide-farm.webp';
+import bgFarm from '../assets/login-page-img.jpg';
 import { Link } from "react-router-dom";
 import show from '../assets/show.png';
 import hide from '../assets/hide.png';
