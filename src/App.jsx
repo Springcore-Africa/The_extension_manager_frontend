@@ -12,7 +12,7 @@ import Personal from './SignUpComp/Personal';
 import RS from './SignUpComp/RS';
 import ResidentialAdd from './SignUpComp/ResidentialAdd';
 import Auth from './pages/Auth';
-import Dashboard from './pages/Dashboard';
+import FarmersDashboard from './Dashboards/FarmersDashboard';
 import InvestorsSignup from './InvestorsSignup';
 function App() {
   
@@ -33,7 +33,7 @@ function App() {
           <Route path="/SignUpComp/ResidentialAdd" element={<ResidentialAdd/>} />
           <Route path="/SignUpComp/RS" element={<RS/>} />
           <Route path="/Auth" element={<Auth/>} />
-          <Route path="/Dashboard" element={<Dashboard/>} />
+          <Route path="/FarmersDashboard" element={<FarmersDashboard/>} />
           <Route path="/InvestorsSignup" element={<InvestorsSignup/>} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
