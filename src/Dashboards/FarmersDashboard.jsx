@@ -1,134 +1,112 @@
-import React from 'react';
-import farmer from '../assets/farmer.png';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import DashboardAsideBar from "../components/DashboardAsideBar";
 
 function FarmersDashboard() {
   return (
-    <div className="flex min-h-screen bg-green-700">
-      {/* Sidebar */}
-      <aside className="w-64 bg-green-700 text-white flex flex-col justify-between rounded-r-3xl p-6">
-        <div>
-          <div className="flex items-center gap-3 mb-10">
-            <img
-              src={farmer} // replace with profile image
-              alt="Profile"
-              className="rounded-full w-16 h-16"
-            />
-            <div>
-              <h2 className="text-lg font-bold">Elvis Nwachukwu</h2>
-              <p className="text-sm">Farm Manager</p>
-            </div>
-          </div>
-
-          <nav className="space-y-6">
-            <button className="text-left w-full font-semibold">🏠 FarmersDashboard</button>
-            <button className="text-left w-full font-semibold">🌾 All Farms</button>
-            <button className="text-left w-full font-semibold">🏛️ Gov Subsidies</button>
-            <button className="text-left w-full font-semibold">⚙️ Settings</button>
-          </nav>
-
-          <div className="mt-10">
-            <p className="text-sm text-green-100 mb-2">You can manage multiple farms here</p>
-            <button className="bg-white text-green-700 font-bold py-2 px-4 rounded-lg w-full">
-              + Add Farm
-            </button>
-          </div>
-        </div>
-        <Link to="/" className="cursor-pointer">
-                          <button className="text-black mb-4 border border-green-600 px-2 bg-white py-1 rounded-lg font-semibold hover:bg-green-500 hover:text-white transition text-sm sm:text-base">
-                            Go Home
-                          </button>
-                        </Link>
-        <div className="text-center">
-          <img
-            src="https://via.placeholder.com/100" // replace with bottom image
-            alt="Illustration"
-            className="mx-auto"
-          />
-        </div>
-      </aside>
+    <div className="flex min-h-screen bg-green-50">
+      {/* Asidebar Component */}
+      <DashboardAsideBar />
 
       {/* Main Content */}
-      <main className="flex-1 p-8 bg-green-50 border-16 border-green-700 rounded-[50px]">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold text-black">Greenvalley Cardamom</h1>
-          <button className="bg-green-700 text-white py-2 px-4 rounded-lg font-semibold">
-            + Add Crop
-          </button>
-        </div>
-
-        {/* Crop Info */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow p-4">
-            <p className="text-gray-500">Crop name</p>
-            <h2 className="text-lg font-bold">Ugwu</h2>
-          </div>
-          <div className="bg-white rounded-xl shadow p-4">
-            <p className="text-gray-500">Area</p>
-            <h2 className="text-lg font-bold">53 Acre</h2>
-          </div>
-          <div className="bg-white rounded-xl shadow p-4">
-            <p className="text-gray-500">Last Production</p>
-            <h2 className="text-lg font-bold">1200 kg</h2>
-          </div>
-        </div>
-
-        {/* Statistics Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow p-6 space-y-4">
-            <div className="flex justify-between">
-              <p className="text-gray-600">Air temperature</p>
-              <p className="text-red-500 font-bold">38°C</p>
+      <main className="flex-1 md:p-8 bg-green-700 border-green-700">
+        <div className="bg-green-50 rounded-2xl border-2 border-white my-0 p-6">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <h1 className="text-xl md:text-2xl font-bold text-green-800 text-center md:text-left">
+              Greenvalley Cardamom
+            </h1>
+            <div className="items-center md:text-left">
+              <p className="text-gray-500 text-sm md:text-base">
+                Date Onboarded
+              </p>
+              <h1 className="text-base md:text-lg">Wednesday, 4 June 2025</h1>
             </div>
-            <div className="flex justify-between">
-              <p className="text-gray-600">Water content</p>
-              <p className="text-green-500 font-bold">32%</p>
+            <Link
+              to={"/extension-manager"}
+              className="bg-green-700 cursor-pointer text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 text-center"
+            >
+              Extension Agent
+            </Link>
+          </div>
+
+          {/* Crop Info */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
+            <div className="bg-white rounded-xl shadow p-4">
+              <p className="text-gray-500">Number of Farms</p>
+              <h2 className="text-lg font-bold text-green-800">1</h2>
             </div>
-            <div className="flex justify-between">
-              <p className="text-gray-600">pH Value</p>
-              <p className="text-yellow-500 font-bold">8</p>
+            <div className="bg-white rounded-xl shadow p-4">
+              <p className="text-gray-500">Total Land Size</p>
+              <h2 className="text-lg font-bold text-green-800">53 Acre</h2>
+            </div>
+            <div className="bg-white rounded-xl shadow p-4">
+              <p className="text-gray-500">Total Previous Production</p>
+              <h2 className="text-lg font-bold text-green-800">1200 kg</h2>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center justify-center">
-            <p className="text-gray-600 mb-2">Financial statistics</p>
-            <div className="relative">
-              <div className="w-32 h-32 rounded-full border-8 border-green-500 flex items-center justify-center text-2xl font-bold">
-                78%
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 mb-8 items-stretch">
+            {/* Crops Info */}
+            <div className="flex-1 flex flex-col gap-4 md:gap-6">
+              {/* Number of Crops */}
+              <div className="bg-white rounded-xl shadow p-4">
+                <p className="text-gray-500 border-b border-green-100 pb-2">
+                  Number of Crops
+                </p>
+                <h2 className="text-lg font-bold text-green-800 pt-2">200</h2>
               </div>
-              <p className="text-center mt-2 text-green-700 font-semibold">Achieved</p>
+              {/* List of Crops */}
+              <div className="bg-white rounded-xl shadow p-4 h-full flex flex-col justify-between">
+                <p className="text-gray-500 border-b border-green-100 pb-2 mb-2">
+                  List of Crops
+                </p>
+                <ul className="list-disc list-inside text-green-800 flex-1">
+                  <li>Maize</li>
+                  <li>Sorghum</li>
+                  <li>Yam</li>
+                  <li>Cassava</li>
+                </ul>
+              </div>
             </div>
-            <div className="flex justify-between w-full mt-4">
-              <div>
-                <p className="text-gray-500 text-sm">Current profit</p>
-                <p className="text-green-700 font-bold">50,000N</p>
-              </div>
-              <div>
-                <p className="text-gray-500 text-sm">Expected profit</p>
-                <p className="text-green-700 font-bold">182,000N</p>
+
+            {/* Financial Statistics */}
+            <div className="bg-white flex-1 rounded-xl shadow p-6 flex flex-col justify-between min-w-[220px]">
+              <p className="text-gray-600 font-semibold pb-4 border-b border-green-100 mb-4 text-center">
+                FINANCIAL STATISTICS
+              </p>
+              <div className="flex-1 flex flex-col justify-center">
+                <ul className="text-green-800 space-y-3">
+                  <li>Total Combined Revenue</li>
+                  <li>Total Combined Cost</li>
+                  <li>Gross Combined Profit</li>
+                  <li>Net Combined Profit</li>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Production Details */}
-        <div className="bg-white rounded-xl shadow p-6">
-          <h2 className="text-xl font-bold text-green-800 mb-6">Production details</h2>
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
-            {[
-              { month: 'January', amount: '2603 kg' },
-              { month: 'February', amount: '1500 kg' },
-              { month: 'April', amount: '2090 kg' },
-              { month: 'May', amount: '1709 kg' },
-              { month: 'July', amount: '2620 kg' },
-              { month: 'August', amount: '2110 kg' },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <div className="bg-green-500 w-8 sm:w-12 h-24 rounded-lg"></div>
-                <p className="text-sm font-semibold mt-2">{item.amount}</p>
-                <p className="text-xs text-gray-500">{item.month}</p>
-              </div>
-            ))}
+          {/* Production Details */}
+          <div className="bg-white rounded-xl shadow p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-green-800 text-center mb-4 md:mb-6">
+              OTHER STATISTICS
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 md:gap-4">
+              {[
+                { month: "January", amount: "2603 kg" },
+                { month: "February", amount: "1500 kg" },
+                { month: "April", amount: "2090 kg" },
+                { month: "May", amount: "1709 kg" },
+                { month: "July", amount: "2620 kg" },
+                { month: "August", amount: "2110 kg" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center">
+                  <div className="bg-green-500 w-8 sm:w-10 md:w-12 h-16 sm:h-20 md:h-24 rounded-lg"></div>
+                  <p className="text-xs sm:text-sm font-semibold mt-2">
+                    {item.amount}
+                  </p>
+                  <p className="text-xs text-gray-500">{item.month}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
