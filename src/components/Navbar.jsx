@@ -1,6 +1,6 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Bgimg from "../assets/logo.jpeg";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -20,50 +20,85 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Helper for active link styling
+  const navLinkClass =
+    "hover:text-green-200 transition px-2 py-1 rounded-xl";
+  const navLinkActiveClass =
+    "text-white bg-none font-bold shadow underline underline-offset-6";
+
   return (
     <>
       <nav
-        className={`w-full px-6 py-4 flex items-center justify-between fixed top-0 left-0 z-50 transition-colors duration-300 ${
+        className={`w-full pl-4 sm:pl-0 px-6 py-4 flex items-center justify-between fixed top-0 left-0 z-50 transition-colors duration-300 ${
           scrolled ? "bg-green-800 shadow-xl text-white" : "bg-transparent text-white"
         }`}
       >
         {/* Logo */}
-        <div className="text-2xl font-bold tracking-wide flex-1 text-left">
-          The Extension Manager
-          <span className="text-green-500"></span>
-        </div>
+        <NavLink to="/" className="flex sm:pl-18">
+          <img
+            src={Bgimg}
+            alt="Logo"
+            className="w-12 h-12 object-cover rounded-lg border-2 border-green-600 shadow-md bg-white"
+            style={{ minWidth: 48, minHeight: 48 }}
+          />
+        </NavLink>
+
         {/* Nav Links */}
         <ul className="hidden md:flex gap-10 text-lg font-medium flex-1 justify-center">
           <li>
-            <Link to="/" className="hover:text-green-200 transition">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+              }
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/products" className="hover:text-green-200 transition">
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+              }
+            >
               Products
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/about" className="hover:text-green-200 transition">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+              }
+            >
               About
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/contact" className="hover:text-green-200 transition">
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+              }
+            >
               Contact
-            </Link>
+            </NavLink>
           </li>
         </ul>
+
         {/* Hamburger Right */}
         <div
           className="flex flex-col gap-1 md:hidden cursor-pointer"
-          onClick={handleSidebar}        >
+          onClick={handleSidebar}
+        >
           <span className="w-6 h-0.5 bg-white rounded"></span>
           <span className="w-6 h-0.5 bg-white rounded"></span>
           <span className="w-6 h-0.5 bg-white rounded"></span>
         </div>
       </nav>
+
       {/* Sidebar */}
       <aside
         className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
@@ -78,43 +113,53 @@ function Navbar() {
         </button>
         <ul className="flex flex-col mt-20 gap-8 px-8 text-green-700 text-lg font-semibold">
           <li>
-            <Link
+            <NavLink
               to="/"
+              end
               onClick={handleSidebar}
-              className="hover:text-green-500 transition"
+              className={({ isActive }) =>
+                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+              }
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
-              to="/product"
+            <NavLink
+              to="/products"
               onClick={handleSidebar}
-              className="hover:text-green-500 transition"
+              className={({ isActive }) =>
+                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+              }
             >
-              Product
-            </Link>
+              Products
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/about"
               onClick={handleSidebar}
-              className="hover:text-green-500 transition"
+              className={({ isActive }) =>
+                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+              }
             >
               About
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/contact"
               onClick={handleSidebar}
-              className="hover:text-green-500 transition"
+              className={({ isActive }) =>
+                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+              }
             >
               Contact
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </aside>
+      
       {/* Overlay */}
       {sidebar && (
         <div

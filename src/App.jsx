@@ -15,6 +15,12 @@ import Auth from './pages/Auth';
 import FarmersDashboard from './Dashboards/FarmersDashboard';
 import InvestorsSignup from './InvestorsSignup';
 import Products from './pages/Products';
+import ResetPassword from './pages/ResetPassword';
+import MyFarms from './pages/MyFarms';
+import Profile from './pages/Profile';
+import ExtensionManager from './pages/ExtensionManager';
+import Farm from './pages/Farm';
+
 function App() {
   
 
@@ -37,6 +43,11 @@ function App() {
           <Route path="/Auth" element={<Auth/>} />
           <Route path="/FarmersDashboard" element={<FarmersDashboard/>} />
           <Route path="/InvestorsSignup" element={<InvestorsSignup/>} />
+          <Route path="/resetpassword" element={<ResetPassword/>} />
+          <Route path="/myfarms" element={<MyFarms/>} />
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/extension-manager" element={<ExtensionManager/>} />
+          <Route path="/farm" element={<Farm />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       

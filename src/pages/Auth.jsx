@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import bgFarm from '../assets/wide-farm.webp';
+// import BgFarm from '../assets/wide-farm.jpeg'
 import { Link } from 'react-router-dom';
 
 const Auth = () => {
@@ -36,7 +36,7 @@ const Auth = () => {
     <div className="relative h-screen w-full">
       {/* Background Image */}
       <img
-        src={bgFarm}
+        src={BgFarm}
         alt="Background farm"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
