@@ -1,9 +1,8 @@
-import bgFarm from './assets/wide-farm.webp';
-import { Link } from 'react-router-dom';
+import bgFarm from "./assets/wide-farm.jpeg";
+import { Link } from "react-router-dom";
 
-const InvestorsSignup
- = () => {
 
+const InvestorsSignup = () => {
   return (
     <div className="relative h-screen w-full">
       {/* Background Image */}
@@ -19,7 +18,9 @@ const InvestorsSignup
       {/* Form Content */}
       <div className="relative z-20 flex items-center justify-center h-full">
         <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-lg w-full">
-          <h1 className="text-2xl font-bold mb-4 text-center text-green-800">Investors Signin</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center text-green-800">
+            Investors Signin
+          </h1>
 
           <form className="space-y-4">
             {/* Email */}
@@ -32,7 +33,7 @@ const InvestorsSignup
             {/* Password */}
             <div className="relative">
               <input
-                type={'password'}
+                type={"password"}
                 placeholder="Password"
                 className="w-full p-2 border border-gray-300 rounded pr-10"
               />
@@ -85,9 +86,9 @@ const InvestorsSignup
           </form>
         </div>
       </div>
+      
     </div>
   );
 };
 
-export default InvestorsSignup
-;
+export default InvestorsSignup;
