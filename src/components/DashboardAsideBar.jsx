@@ -23,7 +23,7 @@ function DashboardAsideBar() {
     { to: "/profile", label: "My Profile", icon: <FaUser /> },
     { to: "/myfarms", label: "My Farms", icon: <GiFarmTractor /> },
     {
-      to: "/extension-manager",
+      to: "/extension-agent",
       label: "My Extension Agent",
       icon: <MdManageAccounts />,
     },
@@ -113,31 +113,37 @@ function DashboardAsideBar() {
               <p className="text-sm text-center">Farmer</p>
             </div>
             <nav className="flex flex-col gap-2 mb-8">
-              {navLinks.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={`flex items-center gap-2 w-full text-left font-semibold cursor-pointer rounded-md px-3 py-1.5 transition
-                    ${
-                      location.pathname === item.to
-                        ? "bg-gray-50 text-green-700 shadow font-bold"
-                        : "hover:bg-gray-200 hover:text-green-700"
-                    }
-                  `}
-                  onClick={() => setSidebarOpen(false)}
-                >
-                  {item.icon}
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+  {navLinks.map((item) => (
+    <Link
+      key={item.to}
+      to={item.to}
+      className={`flex items-center gap-2 w-full text-left font-semibold cursor-pointer rounded-md px-3 py-1.5 transition
+        ${
+          location.pathname === item.to
+            ? "bg-gray-50 text-green-700 shadow font-bold"
+            : "hover:bg-green-600 hover:text-white duration-200"
+        }
+        group
+      `}
+      onClick={() => setSidebarOpen(false)}
+    >
+      <span className="transition-colors duration-200 group-hover:text-yellow-300">
+        {item.icon}
+      </span>
+      {item.label}
+    </Link>
+  ))}
+</nav>
           </div>
           <div>
-            <button className="w-full flex items-center justify-center gap-2 text-white border cursor-pointer border-transparent px-2 mb-4 bg-red-600 py-1 rounded-lg font-semibold hover:bg-red-500 hover:text-white transition text-sm sm:text-base">
-              <FiLogOut className="text-lg" />
-              Logout
-            </button>
-          </div>
+  <button
+    className="w-full flex items-center justify-center gap-2 text-white border cursor-pointer border-transparent px-2 mb-4 bg-red-600 py-1 rounded-lg font-semibold hover:bg-red-700 hover:shadow-md transition text-sm sm:text-base duration-200"
+    style={{ transition: "background 0.2s, box-shadow 0.2s" }}
+  >
+    <FiLogOut className="text-lg transition-colors duration-200 group-hover:text-yellow-300" />
+    Logout
+  </button>
+</div>
         </div>
       </aside>
 

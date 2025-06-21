@@ -1,21 +1,20 @@
 import { useState, useRef } from "react";
-import ExtensionAgtDp from "../assets/extension-agt.jfif";
+import AgentDp from "../assets/extension-agt.jfif";
 import DashboardAsideBar from "../components/DashboardAsideBar";
 
-function Profile() {
-  const [profilePic, setProfilePic] = useState(ExtensionAgtDp);
+function ExtensionAgent() {
+  const [profilePic, setProfilePic] = useState(AgentDp);
   const fileInputRef = useRef(null);
 
-  // Extension Manager Profile Data
-  const [extensionagt, setExtensionAgt] = useState({
-    firstname: "Olaitan",
-    lastname: "Jr.",
-    email: "olaitan-jr.100@email.com",
-    phone: "+234 123 456 7890",
-    location: "Lagos, Nigeria",
-    designation: "Extension Manager",
-    description:
-      "Experienced Extension Manager with a passion for improving agricultural practices and supporting farmers in sustainable farming methods.",
+  // Exention Agent Profile Data
+  const [exentionagent, setexentionagent] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    location: "",
+    designation: "",
+    description: "",
     role: "",
     gender: "",
     dob: "",
@@ -30,6 +29,9 @@ function Profile() {
     accountNumber: "",
   });
 
+  // Success modal state
+  const [showSuccess, setShowSuccess] = useState(false);
+
   // Handle profile picture change
   const handleProfilePicChange = (e) => {
     const file = e.target.files[0];
@@ -43,7 +45,7 @@ function Profile() {
   // Handle form input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setExtensionAgt((prev) => ({
+    setexentionagent((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -52,8 +54,12 @@ function Profile() {
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit logic here
-    alert("Account updated successfully!");
+    setShowSuccess(true);
+  };
+
+  // Update profile card info after modal closes
+  const handleCloseSuccess = () => {
+    setShowSuccess(false);
   };
 
   return (
@@ -64,8 +70,8 @@ function Profile() {
 
         {/* Main Content */}
         <main className="flex-1 md:p-8 bg-green-700 border-green-700">
-          <div className="bg-green-50 rounded-2xl border-2 border-white mx-0 flex flex-col lg:flex-row items-start justify-center px-6 py-10 gap-8">
-            {/* Extension Agent Profile Card */}
+          <div className="bg-green-50 rounded-2xl border-2 border-white mx-0 px-6 py-10 sm:py-10 flex flex-col lg:flex-row items-start justify-center gap-8">
+            {/* Farmer Profile Card */}
             <div className="bg-white shadow p-6 rounded-lg flex flex-col items-center w-full max-w-xs mb-8 lg:mb-0">
               <div className="relative group mb-4">
                 <img
@@ -87,54 +93,57 @@ function Profile() {
                 </span>
               </div>
               <h2 className="text-xl font-bold text-green-800 mb-1">
-                {extensionagt.firstname} {extensionagt.lastname}
+                {exentionagent.firstname} {exentionagent.lastname}
               </h2>
               <p className="text-green-700 font-semibold mb-2">
-                {extensionagt.designation}
+                {exentionagent.designation}
               </p>
               <div className="w-full space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600 font-medium">Email:</span>
                   <span className="text-green-900 text-right">
-                    {extensionagt.email}
+                    {exentionagent.email}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600 font-medium">Phone:</span>
                   <span className="text-green-900 text-right">
-                    {extensionagt.phone}
+                    {exentionagent.phone}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600 font-medium">Location:</span>
                   <span className="text-green-900 text-right">
-                    {extensionagt.location}
+                    {exentionagent.location}
                   </span>
                 </div>
                 <div className="flex items-center justify-between mt-3">
-                  <span className="text-gray-600 font-medium">Designation:</span>
+                  <span className="text-gray-600 font-medium">
+                    Designation:
+                  </span>
                   <span className="text-gray-900 text-bold italic">
-                    {extensionagt.designation}
+                    {exentionagent.designation}
                   </span>
                 </div>
                 <div className="flex flex-col text-center mt-3">
                   <span className="text-gray-600 font-medium">Description</span>
                   <span className="text-gray-900 text-bold italic">
-                    {extensionagt.description}
+                    {exentionagent.description}
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Extension Agent Information Form */}
+            {/* Exention Agent Information Form */}
             <form
               className="bg-white shadow-lg p-8 rounded-xl w-full max-w-3xl space-y-5"
               onSubmit={handleSubmit}
             >
               <h2 className="text-xl font-bold text-green-800 mb-4 text-center">
-                Update Extension Agent Information
+                Update exentionagent Information
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* ...existing form fields... */}
                 <div>
                   <label className="block text-green-800 font-semibold mb-1">
                     First Name
@@ -142,7 +151,7 @@ function Profile() {
                   <input
                     type="text"
                     name="firstname"
-                    value={extensionagt.firstname}
+                    value={exentionagent.firstname}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -155,7 +164,7 @@ function Profile() {
                   <input
                     type="text"
                     name="lastname"
-                    value={extensionagt.lastname}
+                    value={exentionagent.lastname}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -168,7 +177,7 @@ function Profile() {
                   <input
                     type="email"
                     name="email"
-                    value={extensionagt.email}
+                    value={exentionagent.email}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -181,7 +190,7 @@ function Profile() {
                   <input
                     type="tel"
                     name="phone"
-                    value={extensionagt.phone}
+                    value={exentionagent.phone}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -193,7 +202,7 @@ function Profile() {
                   </label>
                   <select
                     name="gender"
-                    value={extensionagt.gender}
+                    value={exentionagent.gender}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -210,7 +219,7 @@ function Profile() {
                   <input
                     type="date"
                     name="dob"
-                    value={extensionagt.dob}
+                    value={exentionagent.dob}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -223,7 +232,7 @@ function Profile() {
                   <input
                     type="text"
                     name="address"
-                    value={extensionagt.address}
+                    value={exentionagent.address}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -236,7 +245,7 @@ function Profile() {
                   <input
                     type="text"
                     name="state"
-                    value={extensionagt.state}
+                    value={exentionagent.state}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                     required
@@ -249,9 +258,63 @@ function Profile() {
                   <input
                     type="text"
                     name="lga"
-                    value={extensionagt.lga}
+                    value={exentionagent.lga}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-green-800 font-semibold mb-1">
+                    Farm Size
+                  </label>
+                  <input
+                    type="text"
+                    name="farmSize"
+                    value={exentionagent.farmSize}
+                    onChange={handleInputChange}
+                    className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-green-800 font-semibold mb-1">
+                    Crops Grown
+                  </label>
+                  <input
+                    type="text"
+                    name="crops"
+                    value={exentionagent.crops}
+                    onChange={handleInputChange}
+                    className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    required
+                  />
+                </div>
+                {/* --- New Designation Field --- */}
+                <div>
+                  <label className="block text-green-800 font-semibold mb-1">
+                    Designation
+                  </label>
+                  <input
+                    type="text"
+                    name="designation"
+                    value={exentionagent.designation}
+                    onChange={handleInputChange}
+                    className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    required
+                  />
+                </div>
+                {/* --- New Description Field --- */}
+                <div className="md:col-span-2">
+                  <label className="block text-green-800 font-semibold mb-1">
+                    Description
+                  </label>
+                  <textarea
+                    name="description"
+                    value={exentionagent.description}
+                    onChange={handleInputChange}
+                    className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    rows={3}
                     required
                   />
                 </div>
@@ -262,7 +325,7 @@ function Profile() {
                   <input
                     type="text"
                     name="bvn"
-                    value={extensionagt.bvn}
+                    value={exentionagent.bvn}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                   />
@@ -274,7 +337,7 @@ function Profile() {
                   <input
                     type="text"
                     name="nin"
-                    value={extensionagt.nin}
+                    value={exentionagent.nin}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                   />
@@ -286,7 +349,7 @@ function Profile() {
                   <input
                     type="text"
                     name="bank"
-                    value={extensionagt.bank}
+                    value={exentionagent.bank}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                   />
@@ -298,7 +361,7 @@ function Profile() {
                   <input
                     type="text"
                     name="accountNumber"
-                    value={extensionagt.accountNumber}
+                    value={exentionagent.accountNumber}
                     onChange={handleInputChange}
                     className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                   />
@@ -314,8 +377,59 @@ function Profile() {
           </div>
         </main>
       </div>
+
+      {/* Success Modal */}
+      {showSuccess && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full flex flex-col items-center relative">
+            <button
+              className="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-xl font-bold"
+              onClick={handleCloseSuccess}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <svg
+              className="w-16 h-16 text-green-600 mb-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="#dcfce7"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12l2 2 4-4"
+                stroke="#16a34a"
+                strokeWidth="2.5"
+                fill="none"
+              />
+            </svg>
+            <h2 className="text-xl font-bold text-green-700 mb-2 text-center">
+              Profile Updated!
+            </h2>
+            <p className="text-gray-700 text-center mb-4">
+              Your exentionagent profile has been updated successfully.
+            </p>
+            <button
+              onClick={handleCloseSuccess}
+              className="bg-green-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-800 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
 
-export default Profile;
+export default ExtensionAgent;

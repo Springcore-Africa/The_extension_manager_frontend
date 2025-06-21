@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {  Routes, Route } from "react-router-dom";
 import AboutUs from './pages/AboutUs';
 import HomePage from './pages/HomePage';
@@ -18,8 +17,9 @@ import Products from './pages/Products';
 import ResetPassword from './pages/ResetPassword';
 import MyFarms from './pages/MyFarms';
 import Profile from './pages/Profile';
-import ExtensionManager from './pages/ExtensionManager';
+import ExtensionAgent from './pages/ExtensionAgent';
 import Farm from './pages/Farm';
+import AgriBusiness from './pages/AgriBusiness';
 
 function App() {
   
@@ -46,8 +46,9 @@ function App() {
           <Route path="/resetpassword" element={<ResetPassword/>} />
           <Route path="/myfarms" element={<MyFarms/>} />
           <Route path="/profile" element={<Profile/>} />
-          <Route path="/extension-manager" element={<ExtensionManager/>} />
+          <Route path="/extension-agent" element={<ExtensionAgent/>} />
           <Route path="/farm" element={<Farm />} />
+          <Route path="/agribusiness" element={<AgriBusiness />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       
