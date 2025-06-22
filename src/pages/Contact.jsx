@@ -69,7 +69,7 @@ function Contact() {
                   Name
                 </label>
                 <input
-                  className="w-full px-4 py-2 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hover:border-green-400 hover:scale-[1.02]"
+                  className="w-full px-4 py-2 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hover:border-green-400"
                   type="text"
                   id="name"
                   name="name"
@@ -87,7 +87,7 @@ function Contact() {
                   Email
                 </label>
                 <input
-                  className="w-full px-4 py-2 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hover:border-green-400 hover:scale-[1.02]"
+                  className="w-full px-4 py-2 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hover:border-green-400"
                   type="email"
                   id="email"
                   name="email"
@@ -105,7 +105,7 @@ function Contact() {
                   Message
                 </label>
                 <textarea
-                  className="w-full px-4 py-2 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hover:border-green-400 hover:scale-[1.02]"
+                  className="w-full px-4 py-2 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hover:border-green-400"
                   id="message"
                   name="message"
                   rows={5}
@@ -117,7 +117,7 @@ function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-900 transition shadow hover:scale-105 duration-300 animate-fade-in-up"
+                className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-900 transition shadow duration-300 animate-fade-in-up"
               >
                 Send Message
               </button>

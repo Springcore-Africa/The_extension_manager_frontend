@@ -4,7 +4,6 @@ import AgriBizVector from "../assets/agri-business-vector.png";
 import { FaPlus, FaUserEdit } from "react-icons/fa";
 
 function AgriBusiness() {
-  // Start with no businesses
   const [businesses, setBusinesses] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -63,7 +62,7 @@ function AgriBusiness() {
     });
   };
 
-  // Handle edit business (populate form with current business)
+  // Handle edit business 
   const handleEditBusiness = () => {
     setEditMode(true);
     setShowModal(true);
@@ -153,7 +152,7 @@ function AgriBusiness() {
               // Show the created agri-business details and profile card
               <div className="w-full max-w-4xl flex flex-col lg:flex-row gap-8 items-start">
                 {/* Profile Card */}
-                <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center w-full max-w-xs mb-8 lg:mb-0">
+                <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center w-full max-w-xs mt-8 mb-5 ml-6 lg:mb-0">
                   <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mb-3">
                     <FaUserEdit className="text-green-700 text-5xl" />
                   </div>
@@ -196,9 +195,21 @@ function AgriBusiness() {
                   </p>
                   <div className="mb-2 text-center">
                     <span className="text-gray-600 font-medium">
-                      Location:{" "}
+                      Address:{" "}
                     </span>
-                    <span className="text-green-900">{activeBiz.location}</span>
+                    <span className="text-green-900">{activeBiz.address}</span>
+                  </div>
+                  <div className="mb-2 text-center">
+                    <span className="text-gray-600 font-medium">
+                      LGA:{" "}
+                    </span>
+                    <span className="text-green-900">{activeBiz.lga}</span>
+                  </div>
+                  <div className="mb-2 text-center">
+                    <span className="text-gray-600 font-medium">
+                      State:{" "}
+                    </span>
+                    <span className="text-green-900">{activeBiz.state}</span>
                   </div>
                   <div className="mb-2 text-center">
                     <span className="text-gray-600 font-medium">
@@ -210,10 +221,10 @@ function AgriBusiness() {
                   </div>
                   <div className="mb-2 text-center">
                     <span className="text-gray-600 font-medium">
-                      Years in Business:{" "}
+                      Yearly Production:{" "}
                     </span>
                     <span className="text-green-900">
-                      {activeBiz.years || "N/A"}
+                      {activeBiz.yearlyproduction || "N/A"}
                     </span>
                   </div>
                   <div className="mb-2 text-center">
@@ -232,12 +243,6 @@ function AgriBusiness() {
                       {activeBiz.employees || "N/A"}
                     </span>
                   </div>
-                  <div className="mb-2 text-center">
-                    <span className="text-gray-600 font-medium">Website: </span>
-                    <span className="text-green-900">
-                      {activeBiz.website || "N/A"}
-                    </span>
-                  </div>
                   <button
                     onClick={handleEditBusiness}
                     className="bg-green-700 mt-4 flex items-center gap-2 cursor-pointer text-white py-2 px-6 rounded-lg font-semibold hover:bg-green-600 text-center shadow"
@@ -245,7 +250,6 @@ function AgriBusiness() {
                     <span>Update Agri-Business</span>
                     <FaUserEdit className="text-base" />
                   </button>
-                  {/* Update Form (shown in modal) */}
                 </div>
               </div>
             )}
@@ -295,7 +299,7 @@ function AgriBusiness() {
                     </label>
                     <input
                       type="text"
-                      name="type"
+                      name="state"
                       value={newBiz.state}
                       onChange={handleInputChange}
                       className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -308,7 +312,7 @@ function AgriBusiness() {
                     </label>
                     <input
                       type="text"
-                      name="type"
+                      name="lga"
                       value={newBiz.lga}
                       onChange={handleInputChange}
                       className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -382,7 +386,7 @@ function AgriBusiness() {
                       Phone Number
                     </label>
                     <input
-                      type="text"
+                      type="tel"
                       name="phone"
                       value={newBiz.phone}
                       onChange={handleInputChange}
@@ -409,7 +413,7 @@ function AgriBusiness() {
                     </label>
                     <input
                       type="date"
-                      name="registration"
+                      name="registrationdate"
                       value={newBiz.registrationdate}
                       onChange={handleInputChange}
                       className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -422,7 +426,7 @@ function AgriBusiness() {
                     <input
                       type="text"
                       name="product"
-                      value={newBiz.type}
+                      value={newBiz.product}
                       onChange={handleInputChange}
                       className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
                       min={1}

@@ -72,7 +72,7 @@ function ExtensionAgent() {
         <main className="flex-1 md:p-8 bg-green-700 border-green-700">
           <div className="bg-green-50 rounded-2xl border-2 border-white mx-0 px-6 py-10 sm:py-10 flex flex-col lg:flex-row items-start justify-center gap-8">
             {/* Farmer Profile Card */}
-            <div className="bg-white shadow p-6 rounded-lg flex flex-col items-center w-full max-w-xs mb-8 lg:mb-0">
+            <div className="bg-white shadow p-6 rounded-lg flex flex-col items-center w-full max-w-xs mt-8 mb-5 ml-6 lg:mb-0">
               <div className="relative group mb-4">
                 <img
                   src={profilePic}
@@ -143,7 +143,6 @@ function ExtensionAgent() {
                 Update exentionagent Information
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* ...existing form fields... */}
                 <div>
                   <label className="block text-green-800 font-semibold mb-1">
                     First Name
