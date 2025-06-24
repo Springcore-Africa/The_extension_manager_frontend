@@ -474,7 +474,7 @@ function AgriBusiness() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-900 transition mt-2"
+                    className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold cursor-pointer hover:bg-green-900 transition mt-2"
                   >
                     {editMode ? "Update Agri-Business" : "Add Agri-Business"}
                   </button>

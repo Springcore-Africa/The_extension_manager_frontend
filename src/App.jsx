@@ -20,6 +20,7 @@ import Profile from './pages/Profile';
 import ExtensionAgent from './pages/ExtensionAgent';
 import Farm from './pages/Farm';
 import AgriBusiness from './pages/AgriBusiness';
+import InvestorDashboard from "./Dashboards/InvestorDashboard";
 
 function App() {
   
@@ -49,6 +50,7 @@ function App() {
           <Route path="/extension-agent" element={<ExtensionAgent/>} />
           <Route path="/farm" element={<Farm />} />
           <Route path="/agribusiness" element={<AgriBusiness />} />
+          <Route path="/investordashboard" element={<InvestorDashboard />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       

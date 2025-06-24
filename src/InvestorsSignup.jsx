@@ -75,7 +75,7 @@ const InvestorsSignup = () => {
             />
 
             {/* Submit */}
-            <Link to="/Dashboard">
+            <Link to="/InvestorDashboard">
               <button
                 type="submit"
                 className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700 transition"

@@ -289,7 +289,6 @@ function ExtensionAgent() {
                     required
                   />
                 </div>
-                {/* --- New Designation Field --- */}
                 <div>
                   <label className="block text-green-800 font-semibold mb-1">
                     Designation
@@ -303,7 +302,6 @@ function ExtensionAgent() {
                     required
                   />
                 </div>
-                {/* --- New Description Field --- */}
                 <div className="md:col-span-2">
                   <label className="block text-green-800 font-semibold mb-1">
                     Description
@@ -368,7 +366,7 @@ function ExtensionAgent() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-900 transition mt-4"
+                className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold cursor-pointer hover:bg-green-900 transition mt-4"
               >
                 Update Account
               </button>
