@@ -1,4 +1,4 @@
-import bgFarm from "./assets/wide-farm.jpeg";
+import bgFarm from "../assets/wide-farm.jpeg";
 import { Link } from "react-router-dom";
 
 
