@@ -5,7 +5,6 @@ import farm from '../assets/farm.jpeg';
 import one from '../assets/number-1.png';
 import two from '../assets/number-2.png';
 import three from '../assets/number-3.png';
-import four from '../assets/number-4.png';
 import five from '../assets/number-5.png';
 import tick from '../assets/checkmark.png';
 
@@ -42,7 +41,7 @@ const ResidentialAdd = () => {
     e.preventDefault();
     if (validate()) {
       updateFormSection('address', formData); // ✅ Save to correct section
-      navigate('/SignUpComp/FarmingBg');
+      navigate('/SignUpComp/RS');
     } else {
       alert('Please complete all required fields.');
     }
@@ -78,10 +77,6 @@ const ResidentialAdd = () => {
               <span className="flex items-center gap-3 text-white">
                 <img src={three} alt="3" className="w-6 h-6" />
                 <span className="font-semibold">Residential Address</span>
-              </span>
-              <span className="flex items-center gap-3 text-white/70">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <Link to='/SignUpComp/FarmingBg'>Farming Background</Link>
               </span>
               <span className="flex items-center gap-3 text-white/70">
                 <img src={five} alt="5" className="w-6 h-6" />

@@ -25,7 +25,7 @@ function DashboardAsideBar() {
     { to: "/profile", label: "My Profile", icon: <FaUser /> },
     { to: "/myfarms", label: "My Farms", icon: <GiFarmTractor /> },
     {
-      to: "/extension-agent",
+      to: "/extension-agent-dashboard",
       label: "My Extension Agent",
       icon: <MdManageAccounts />,
     },

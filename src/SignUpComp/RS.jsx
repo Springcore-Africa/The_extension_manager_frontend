@@ -5,7 +5,6 @@ import farm from '../assets/farm.jpeg';
 import one from '../assets/number-1.png';
 import two from '../assets/number-2.png';
 import three from '../assets/number-3.png';
-import four from '../assets/number-4.png';
 import five from '../assets/number-5.png';
 import tick from '../assets/checkmark.png';
 
@@ -16,7 +15,7 @@ const RS = () => {
   const handleFinalSubmit = () => {
     console.log("✅ Final Form Data:", formData);
     alert("Submitted successfully!");
-    navigate('/');
+    navigate('/Auth');
   };
 
   return (
@@ -43,11 +42,6 @@ const RS = () => {
               <span className="flex items-center gap-3">
                 <img src={three} alt="3" className="w-6 h-6" />
                 <Link to="/SignUpComp/ResidentialAdd" className="flex items-center gap-2">Residential Address</Link>
-                <img src={tick} alt="tick" className="h-5 w-5" />
-              </span>
-              <span className="flex items-center gap-3">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <Link to="/SignUpComp/FarmingBg" className="flex items-center gap-2">Farming Background</Link>
                 <img src={tick} alt="tick" className="h-5 w-5" />
               </span>
               <span className="flex items-center gap-3">
@@ -116,24 +110,17 @@ const RS = () => {
             </section>
           )}
 
-          {formData.farming && (
-            <section className="mb-6">
-              <h2 className="text-lg font-semibold">Farming Background</h2>
-              <p className="whitespace-pre-line">{formData.farming.farmingExperience}</p>
-            </section>
-          )}
-
           <div className="mt-6 flex justify-between">
             <button
-              onClick={() => navigate('/SignUpComp/FarmingBg')}
-              className="px-4 py-2 border border-green-600 text-green-700 rounded hover:bg-green-50"
+              onClick={() => navigate('/SignUpComp/ResidentialAdd')}
+              className="px-4 py-2 border border-green-600 cursor-pointer text-green-700 rounded hover:bg-green-50"
             >
               Back
             </button>
-            <Link to='./Auth'>
+            <Link to='/Auth'>
             <button
               onClick={handleFinalSubmit}
-              className="px-6 py-2 bg-green-600 text-white font-semibold rounded hover:bg-green-700"
+              className="px-6 py-2 bg-green-600 text-white cursor-pointer font-semibold rounded hover:bg-green-700"
             >
               Submit
             </button></Link>

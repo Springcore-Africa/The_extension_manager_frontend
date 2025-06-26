@@ -4,7 +4,6 @@ import farm from '../assets/farm.jpeg';
 import one from '../assets/number-1.png';
 import two from '../assets/number-2.png';
 import three from '../assets/number-3.png';
-import four from '../assets/number-4.png';
 import five from '../assets/number-5.png';
 import tick from '../assets/checkmark.png';
 import { useFormData } from "../context/FormContext";
@@ -76,10 +75,6 @@ const Demograph = () => {
               <span className="flex items-center gap-3 text-white/70">
                 <img src={three} alt="3" className="w-6 h-6" />
                 <Link to='/SignUpComp/ResidentialAdd'>Residential Address</Link>
-              </span>
-              <span className="flex items-center gap-3 text-white/70">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <Link to='/SignUpComp/FarmingBg'>Farming Background</Link>
               </span>
               <span className="flex items-center gap-3 text-white/70">
                 <img src={five} alt="5" className="w-6 h-6" />

@@ -5,7 +5,6 @@ import farm from '../assets/farm.jpeg';
 import one from '../assets/number-1.png';
 import two from '../assets/number-2.png';
 import three from '../assets/number-3.png';
-import four from '../assets/number-4.png';
 import five from '../assets/number-5.png';
 
 const Personal = () => {
@@ -90,10 +89,6 @@ const Personal = () => {
                 <span>Residential Address</span>
               </span>
               <span className="flex items-center gap-3 text-white/70">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <span>Farming Background</span>
-              </span>
-              <span className="flex items-center gap-3 text-white/70">
                 <img src={five} alt="5" className="w-6 h-6" />
                 <span>Review and Submit</span>
               </span>
@@ -146,20 +141,20 @@ const Personal = () => {
           <h1 className="text-xl font-bold mt-8 mb-2">Additional Documents</h1>
 
           <p className="text-sm">Birth Certificate</p>
-          <div className="border-2 border-dotted border-gray-500 rounded-lg cursor-pointer mb-4">
-            <input type="file" accept=".pdf,.doc,.docx" name="birthCert" onChange={handleChange} className="block w-full p-2" />
+          <div className="border-2 border-gray-500 rounded-lg cursor-pointer mb-4">
+            <input type="text" name="birthCert" onChange={handleChange} className="block w-full p-2" />
           </div>
           {errors.birthCert && <p className="text-red-600 text-sm mb-2">{errors.birthCert}</p>}
 
           <p className="text-sm">Highest Education Certificate</p>
-          <div className="border-2 border-dotted border-gray-500 rounded-lg cursor-pointer mb-4">
-            <input type="file" accept=".pdf,.doc,.docx" name="eduCert" onChange={handleChange} className="block w-full p-2" />
+          <div className="border-2 border-gray-500 rounded-lg cursor-pointer mb-4">
+            <input type="text" name="eduCert" onChange={handleChange} className="block w-full p-2" />
           </div>
           {errors.eduCert && <p className="text-red-600 text-sm mb-2">{errors.eduCert}</p>}
 
           <p className="text-sm">Passport Photograph</p>
-          <div className="border-2 border-dotted border-gray-500 rounded-lg cursor-pointer mb-4">
-            <input type="file" accept="image/*" name="passport" onChange={handleChange} className="block w-full p-6" />
+          <div className="border-2 border-gray-500 rounded-lg cursor-pointer mb-4">
+            <input type="text" name="passport" onChange={handleChange} className="block w-full p-6" />
           </div>
           {errors.passport && <p className="text-red-600 text-sm mb-2">{errors.passport}</p>}
 
