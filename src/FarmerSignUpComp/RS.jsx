@@ -31,17 +31,17 @@ const RS = () => {
             <div className="space-y-6">
               <span className="flex items-center gap-3">
                 <img src={one} alt="1" className="w-6 h-6" />
-                <Link to="/SignUpComp/Personal" className="flex items-center gap-2">Personal Information</Link>
+                <Link to="/FarmerSignUpComp/Personal" className="flex items-center gap-2">Personal Information</Link>
                 <img src={tick} alt="tick" className="h-5 w-5" />
               </span>
               <span className="flex items-center gap-3">
                 <img src={two} alt="2" className="w-6 h-6" />
-                <Link to="/SignUpComp/Demograph" className="flex items-center gap-2">Demographic</Link>
+                <Link to="/FarmerSignUpComp/Demograph" className="flex items-center gap-2">Demographic</Link>
                 <img src={tick} alt="tick" className="h-5 w-5" />
               </span>
               <span className="flex items-center gap-3">
                 <img src={three} alt="3" className="w-6 h-6" />
-                <Link to="/SignUpComp/ResidentialAdd" className="flex items-center gap-2">Residential Address</Link>
+                <Link to="/FarmerSignUpComp/ResidentialAdd" className="flex items-center gap-2">Residential Address</Link>
                 <img src={tick} alt="tick" className="h-5 w-5" />
               </span>
               <span className="flex items-center gap-3">
@@ -112,7 +112,7 @@ const RS = () => {
 
           <div className="mt-6 flex justify-between">
             <button
-              onClick={() => navigate('/SignUpComp/ResidentialAdd')}
+              onClick={() => navigate('/FarmerSignUpComp/ResidentialAdd')}
               className="px-4 py-2 border border-green-600 cursor-pointer text-green-700 rounded hover:bg-green-50"
             >
               Back

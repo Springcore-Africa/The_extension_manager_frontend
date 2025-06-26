@@ -5,10 +5,10 @@ import Contact from './pages/Contact';
 import Services from './pages/Services';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import Demograph from './SignUpComp/Demograph';
-import Personal from './SignUpComp/Personal';
-import RS from './SignUpComp/RS';
-import ResidentialAdd from './SignUpComp/ResidentialAdd';
+import Demograph from './FarmerSignUpComp/Demograph';
+import Personal from './FarmerSignUpComp/Personal';
+import RS from './FarmerSignUpComp/RS';
+import ResidentialAdd from './FarmerSignUpComp/ResidentialAdd';
 import Auth from './pages/Auth';
 import FarmersDashboard from './Dashboards/FarmersDashboard';
 import InvestorsSignup from './InvestorsSignup';
@@ -35,10 +35,10 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/SignUpComp/Demograph" element={<Demograph />} />
-          <Route path="/SignUpComp/Personal" element={<Personal />} />
-          <Route path="/SignUpComp/ResidentialAdd" element={<ResidentialAdd/>} />
-          <Route path="/SignUpComp/RS" element={<RS/>} />
+          <Route path="/FarmerSignUpComp/Demograph" element={<Demograph />} />
+          <Route path="/FarmerSignUpComp/Personal" element={<Personal />} />
+          <Route path="/FarmerSignUpComp/ResidentialAdd" element={<ResidentialAdd/>} />
+          <Route path="/FarmerSignUpComp/RS" element={<RS/>} />
           <Route path="/Auth" element={<Auth/>} />
           <Route path="/FarmersDashboard" element={<FarmersDashboard/>} />
           <Route path="/InvestorsSignup" element={<InvestorsSignup/>} />
