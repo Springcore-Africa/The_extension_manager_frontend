@@ -4,7 +4,6 @@ import farm from '../assets/farm.jpeg';
 import one from '../assets/number-1.png';
 import two from '../assets/number-2.png';
 import three from '../assets/number-3.png';
-import four from '../assets/number-4.png';
 import five from '../assets/number-5.png';
 import tick from '../assets/checkmark.png';
 import { useFormData } from "../context/FormContext";

@@ -22,10 +22,10 @@ function InvestorDashboard() {
   // Sidebar Navlinks
   const navLinks = [
     { to: "/investordashboard", label: "Home", icon: <FaHome /> },
-    { to: "/profile", label: "My Profile", icon: <FaUser /> },
-    { to: "/farmer", label: "Farmer", icon: <FaFileAlt /> },
-    { to: "/myfarms", label: "My Farms", icon: <GiFarmTractor /> },
-    { to: "/agribusiness", label: "Agri-Business", icon: <FaSeedling /> },
+    { to: "#", label: "My Profile", icon: <FaUser /> },
+    { to: "#", label: "Farmer", icon: <FaFileAlt /> },
+    { to: "#", label: "My Farms", icon: <GiFarmTractor /> },
+    { to: "#", label: "Agri-Business", icon: <FaSeedling /> },
     {
       to: "/#",
       label: "Ongoing Investments",
@@ -91,8 +91,8 @@ function InvestorDashboard() {
                   title="Click to change profile picture"
                 />
 
-                <h2 className="text-lg font-bold text-center">Elvis Nwachukwu</h2>
-                <p className="text-sm text-center">Farmer</p>
+                <h2 className="text-lg font-bold text-center">Olakunle Taoreed</h2>
+                <p className="text-sm text-center">Investor</p>
               </div>
               <nav className="flex flex-col gap-2 mb-8">
                 {navLinks.map((item) => (

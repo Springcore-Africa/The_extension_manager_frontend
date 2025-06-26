@@ -7,7 +7,7 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Demograph from './FarmerSignUpComp/Demograph';
 import Personal from './FarmerSignUpComp/Personal';
-import RS from './SignUpComp/RS';
+import RS from './FarmerSignUpComp/RS';
 import ResidentialAdd from './FarmerSignUpComp/ResidentialAdd';
 import Auth from './pages/Auth';
 import FarmersDashboard from './Dashboards/FarmersDashboard';
@@ -16,7 +16,7 @@ import Products from './pages/Products';
 import ResetPassword from './pages/ResetPassword';
 import MyFarms from './pages/MyFarms';
 import Profile from './pages/Profile';
-import ExtensionAgent from './pages/ExtensionAgent';
+import ExtensionAgent from './Dashboards/ExtensionAgentDashboard';
 import Farm from './pages/Farm';
 import AgriBusiness from './pages/AgriBusiness';
 import InvestorDashboard from "./Dashboards/InvestorDashboard";
@@ -35,17 +35,17 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/SignUpComp/Demograph" element={<Demograph />} />
-          <Route path="/SignUpComp/Personal" element={<Personal />} />
-          <Route path="/SignUpComp/ResidentialAdd" element={<ResidentialAdd/>} />
-          <Route path="/SignUpComp/RS" element={<RS/>} />
+          <Route path="/FarmerSignUpComp/Demograph" element={<Demograph />} />
+          <Route path="/FarmerSignUpComp/Personal" element={<Personal />} />
+          <Route path="/FarmerSignUpComp/ResidentialAdd" element={<ResidentialAdd/>} />
+          <Route path="/FarmerSignUpComp/RS" element={<RS/>} />
           <Route path="/Auth" element={<Auth/>} />
           <Route path="/FarmersDashboard" element={<FarmersDashboard/>} />
           <Route path="/InvestorsSignup" element={<InvestorsSignup/>} />
           <Route path="/resetpassword" element={<ResetPassword/>} />
           <Route path="/myfarms" element={<MyFarms/>} />
           <Route path="/profile" element={<Profile/>} />
-          <Route path="/extension-agent" element={<ExtensionAgent/>} />
+          <Route path="/extension-agent-dashboard" element={<ExtensionAgent/>} />
           <Route path="/farm" element={<Farm />} />
           <Route path="/agribusiness" element={<AgriBusiness />} />
           <Route path="/investordashboard" element={<InvestorDashboard />} />
