@@ -35,7 +35,7 @@ function SignUp() {
               <p className="text-gray-700 mb-4">
                 Join our network of empowered farmers and get access to digital tools, expert advice, and market opportunities to grow your farm business.
               </p>
-              <Link to="/SignUpComp/Personal">
+              <Link to="/FarmerSignUpComp/Personal">
                 <button className="mt-4 border rounded-lg bg-green-700 p-1 px-4 text-white cursor-pointer hover:bg-green-800 transition shadow group-hover:scale-105 duration-300">
                   Sign Up
                 </button>

@@ -59,7 +59,7 @@ const Personal = () => {
     if (validate()) {
       console.log("✅ Saving personal formData:", formData);
       updateFormSection('personal', formData);
-      navigate('/SignUpComp/Demograph');
+      navigate('/FarmerSignUpComp/Demograph');
     } else {
       alert("Please fill out all required fields correctly.");
     }
