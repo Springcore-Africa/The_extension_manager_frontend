@@ -5,14 +5,13 @@ import Contact from './pages/Contact';
 import Services from './pages/Services';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import Demograph from './SignUpComp/Demograph';
-import Farming from './SignUpComp/FarmingBg';
-import Personal from './SignUpComp/Personal';
+import Demograph from './FarmerSignUpComp/Demograph';
+import Personal from './FarmerSignUpComp/Personal';
 import RS from './SignUpComp/RS';
-import ResidentialAdd from './SignUpComp/ResidentialAdd';
+import ResidentialAdd from './FarmerSignUpComp/ResidentialAdd';
 import Auth from './pages/Auth';
 import FarmersDashboard from './Dashboards/FarmersDashboard';
-import InvestorsSignup from './InvestorsSignup';
+import InvestorsSignup from './InvstSignUp/InvestorsSignup';
 import Products from './pages/Products';
 import ResetPassword from './pages/ResetPassword';
 import MyFarms from './pages/MyFarms';
@@ -36,7 +35,6 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/SignUpComp/FarmingBg" element={<Farming />} />
           <Route path="/SignUpComp/Demograph" element={<Demograph />} />
           <Route path="/SignUpComp/Personal" element={<Personal />} />
           <Route path="/SignUpComp/ResidentialAdd" element={<ResidentialAdd/>} />

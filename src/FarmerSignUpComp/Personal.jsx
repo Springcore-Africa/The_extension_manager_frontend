@@ -90,10 +90,6 @@ const Personal = () => {
                 <span>Residential Address</span>
               </span>
               <span className="flex items-center gap-3 text-white/70">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <span>Farming Background</span>
-              </span>
-              <span className="flex items-center gap-3 text-white/70">
                 <img src={five} alt="5" className="w-6 h-6" />
                 <span>Review and Submit</span>
               </span>

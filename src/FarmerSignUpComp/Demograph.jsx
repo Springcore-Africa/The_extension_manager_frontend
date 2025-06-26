@@ -78,10 +78,6 @@ const Demograph = () => {
                 <Link to='/SignUpComp/ResidentialAdd'>Residential Address</Link>
               </span>
               <span className="flex items-center gap-3 text-white/70">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <Link to='/SignUpComp/FarmingBg'>Farming Background</Link>
-              </span>
-              <span className="flex items-center gap-3 text-white/70">
                 <img src={five} alt="5" className="w-6 h-6" />
                 <Link to='/SignUpComp/RS'>Review and Submit</Link>
               </span>
