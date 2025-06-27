@@ -11,15 +11,16 @@ import RS from './FarmerSignUpComp/RS';
 import ResidentialAdd from './FarmerSignUpComp/ResidentialAdd';
 import Auth from './pages/Auth';
 import FarmersDashboard from './Dashboards/FarmersDashboard';
-import InvestorsSignup from './InvstSignUp/InvestorsSignup';
+import InvestorsSignup from './InvestorsSignup';
 import Products from './pages/Products';
 import ResetPassword from './pages/ResetPassword';
-import MyFarms from './pages/MyFarms';
-import Profile from './pages/Profile';
+import MyFarms from './Farmer/MyFarms';
+import Profile from './Farmer/Profile';
 import ExtensionAgent from './Dashboards/ExtensionAgentDashboard';
-import Farm from './pages/Farm';
+import Farm from './Farmer/Farm';
 import AgriBusiness from './pages/AgriBusiness';
 import InvestorDashboard from "./Dashboards/InvestorDashboard";
+import Reports from "./Farmer/Reports";
 
 function App() {
   
@@ -43,10 +44,11 @@ function App() {
           <Route path="/FarmersDashboard" element={<FarmersDashboard/>} />
           <Route path="/InvestorsSignup" element={<InvestorsSignup/>} />
           <Route path="/resetpassword" element={<ResetPassword/>} />
-          <Route path="/myfarms" element={<MyFarms/>} />
-          <Route path="/profile" element={<Profile/>} />
+          <Route path="/Farmer/myfarms" element={<MyFarms/>} />
+          <Route path="/Farmer/profile" element={<Profile/>} />
           <Route path="/extension-agent-dashboard" element={<ExtensionAgent/>} />
-          <Route path="/farm" element={<Farm />} />
+          <Route path="/Farmer/farm" element={<Farm />} />
+          <Route path="/Farmer/reports" element={<Reports />} />
           <Route path="/agribusiness" element={<AgriBusiness />} />
           <Route path="/investordashboard" element={<InvestorDashboard />} />
           {/* <Route path="*" element={<NotFound />} /> */}
