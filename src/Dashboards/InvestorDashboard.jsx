@@ -1,149 +1,108 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import Logo from "../assets/logo.jpeg";
-import FarmerDp from "../assets/farmer-dp.jpeg";
-import {
-  FaHome,
-  FaUser,
-  FaMoneyBillWave,
-  FaFileAlt,
-  FaSeedling,
-} from "react-icons/fa";
-import { GiFarmTractor } from "react-icons/gi";
-import { MdManageAccounts } from "react-icons/md";
-import { FiLogOut } from "react-icons/fi";
+import InvestmentOne from "../assets/investor-farm1.jpg";
+import InvestmentTwo from "../assets/investor-farm2.jfif";
+import { Link } from "react-router-dom";
+import InvestorAsideBar from "../components/InvestorAsideBar";
 
 function InvestorDashboard() {
-  const [sidebar, setSidebar] = useState(false);
-  const location = useLocation();
-
-  const handleSidebar = () => setSidebar((prev) => !prev);
-
-  // Sidebar Navlinks
-  const navLinks = [
-    { to: "/investordashboard", label: "Home", icon: <FaHome /> },
-    { to: "#", label: "My Profile", icon: <FaUser /> },
-    { to: "#", label: "Farmer", icon: <FaFileAlt /> },
-    { to: "#", label: "My Farms", icon: <GiFarmTractor /> },
-    { to: "#", label: "Agri-Business", icon: <FaSeedling /> },
-    {
-      to: "/#",
-      label: "Ongoing Investments",
-      icon: <MdManageAccounts />,
-    },
-    { to: "/#", label: "Available Investments", icon: <FaMoneyBillWave /> },
-  ];
-
   return (
-    <>
-      <div className="flex min-h-screen bg-green-50">
-        {/* Hamburger menu for mobile view */}
-        <button
-          className="md:hidden absolute top-4 left-4 z-30 bg-white p-2 rounded-lg shadow-lg"
-          onClick={handleSidebar}
-          aria-label="Open sidebar"
-        >
-          <span className="block w-6 h-0.5 bg-green-700 rounded mb-1"></span>
-          <span className="block w-6 h-0.5 bg-green-700 rounded mb-1"></span>
-          <span className="block w-6 h-0.5 bg-green-700 rounded"></span>
-        </button>
+    <div className="flex min-h-screen bg-green-50">
+      {/* Asidebar Component */}
+      <InvestorAsideBar />
 
-        {/* Sidebar */}
-        <aside
-          className={`
-            fixed inset-y-0 left-0 z-40 w-64 bg-green-700 text-white shadow-lg
-            transform transition-transform duration-300 flex flex-col
-            md:static md:translate-x-0 md:shadow-none md:flex
-            ${sidebar ? "translate-x-0" : "-translate-x-full"}
-          `}
-        >
-          {/* Close button for mobile view */}
-          <button
-            className="close-btn text-3xl absolute top-4 right-6 text-white hover:text-green-900 md:hidden"
-            onClick={handleSidebar}
-          >
-            &times;
-          </button>
-
-          {/* Logo */}
-          <div className="mb-8 ml-2 mt-2">
-            <Link to="/" className="flex items-center">
-              <img
-                src={Logo}
-                alt="Logo"
-                className="w-12 h-12 object-cover rounded-lg border-2 border-green-600 shadow-md bg-white"
-                style={{ minWidth: 48, minHeight: 48 }}
-              />
-            </Link>
-          </div>
-
-          {/* Sidebar main content */}
-          <div className="flex-1 flex flex-col justify-between">
-            <div>
-              <div className="flex flex-col items-center mb-6 relative group">
-                <img
-                  src={FarmerDp}
-                  alt="Profile"
-                  className="rounded-full border-white border-2 w-16 h-16 mb-2 object-cover cursor-pointer"
-                  onClick={() =>
-                    document.getElementById("profilePicInput")?.click()
-                  }
-                  title="Click to change profile picture"
-                />
-
-                <h2 className="text-lg font-bold text-center">Olakunle Taoreed</h2>
-                <p className="text-sm text-center">Investor</p>
+      {/* Main Content */}
+      <main className="flex-1 md:p-8 bg-green-700 border-green-700">
+        <div className="bg-green-50 rounded-2xl border-2 border-white my-0 p-13 sm:p-6 min-h-screen">
+          <h1 className="text-2xl font-bold text-green-800 mb-6">Investor Dashboard</h1>
+          <div className="mt-8">
+            <section className="mb-10">
+              <h2 className="text-xl font-semibold text-green-700 mb-4">Your Investments</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Investment Cards */}
+                <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-3 hover:shadow-lg transition">
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={InvestmentOne}
+                      alt="Maize Farm"
+                      className="w-20 h-16 rounded-lg object-cover border border-green-200"
+                    />
+                    <div>
+                      <h3 className="font-bold text-green-800">Maize Farm Investment</h3>
+                      <span className="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-700">
+                        Ongoing
+                      </span>
+                    </div>
+                  </div>
+                  <ul className="text-sm text-gray-700 mt-2 space-y-1">
+                    <li>
+                      <span className="font-semibold">Amount Invested:</span> ₦500,000
+                    </li>
+                    <li>
+                      <span className="font-semibold">Expected Returns:</span> ₦650,000
+                    </li>
+                    <li>
+                      <span className="font-semibold">Duration:</span> 6 months
+                    </li>
+                    <li>
+                      <span className="font-semibold">Farmer:</span> Elvis Nwachukwu
+                    </li>
+                    <li>
+                      <span className="font-semibold">Location:</span> Oyo State
+                    </li>
+                  </ul>
+                  <button className="mt-2 text-green-700 font-semibold hover:underline text-sm text-left">
+                    View Details
+                  </button>
+                </div>
+                <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-3 hover:shadow-lg transition">
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={InvestmentTwo}
+                      alt="Rice Farm"
+                      className="w-20 h-16 rounded-lg object-cover border border-green-200"
+                    />
+                    <div>
+                      <h3 className="font-bold text-green-800">Rice Farm Investment</h3>
+                      <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
+                        Completed
+                      </span>
+                    </div>
+                  </div>
+                  <ul className="text-sm text-gray-700 mt-2 space-y-1">
+                    <li>
+                      <span className="font-semibold">Amount Invested:</span> ₦300,000
+                    </li>
+                    <li>
+                      <span className="font-semibold">Returns:</span> ₦420,000
+                    </li>
+                    <li>
+                      <span className="font-semibold">Duration:</span> 5 months
+                    </li>
+                    <li>
+                      <span className="font-semibold">Farmer:</span> Amina Bello
+                    </li>
+                    <li>
+                      <span className="font-semibold">Location:</span> Kano State
+                    </li>
+                  </ul>
+                  <button className="mt-2 text-green-700 font-semibold hover:underline text-sm text-left">
+                    View Details
+                  </button>
+                </div>
               </div>
-              <nav className="flex flex-col gap-2 mb-8">
-                {navLinks.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`flex items-center gap-2 w-full text-left font-semibold cursor-pointer rounded-md px-3 py-1.5 transition
-                      ${
-                        location.pathname === item.to
-                          ? "bg-gray-50 text-green-700 shadow font-bold"
-                          : "hover:bg-green-600 hover:text-white duration-200"
-                      }
-                      group
-                    `}
-                    onClick={() => setSidebar(false)}
-                  >
-                    <span className="transition-colors duration-200 group-hover:text-yellow-300">
-                      {item.icon}
-                    </span>
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-            <div>
-              <button
-                className="w-full flex items-center justify-center gap-2 text-white border cursor-pointer border-transparent px-2 mb-4 bg-red-600 py-1 rounded-lg font-semibold hover:bg-red-700 hover:shadow-md transition text-sm sm:text-base duration-200"
-                style={{ transition: "background 0.2s, box-shadow 0.2s" }}
+            </section>
+            <section>
+              <h2 className="text-xl font-semibold text-green-700 mb-2">Explore More Opportunities</h2>
+              <Link
+                to="/available-investments"
+                className="inline-block bg-green-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-800 transition"
               >
-                <FiLogOut className="text-lg transition-colors duration-200 " />
-                Logout
-              </button>
-            </div>
+                View Available Investments
+              </Link>
+            </section>
           </div>
-        </aside>
-
-        {/* Overlay for mobile sidebar */}
-        {sidebar && (
-          <div
-            className="fixed inset-0 bg-black/70 bg-opacity-40 z-30 md:hidden"
-            onClick={handleSidebar}
-          />
-        )}
-
-        {/* Main dashboard content goes here */}
-        <main className="flex-1 p-8">
-
-          <h1 className="text-2xl font-bold text-green-800">Investor Dashboard</h1>
-        </main>
-      </div>
-    </>
+        </div>
+      </main>
+    </div>
   );
 }
 

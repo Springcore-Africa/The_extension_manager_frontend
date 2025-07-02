@@ -22,15 +22,15 @@ function DashboardAsideBar() {
   // Sidebar Navlinks
   const navLinks = [
     { to: "/farmersdashboard", label: "Home", icon: <FaHome /> },
-    { to: "/profile", label: "My Profile", icon: <FaUser /> },
-    { to: "/myfarms", label: "My Farms", icon: <GiFarmTractor /> },
+    { to: "/Farmer/profile", label: "My Profile", icon: <FaUser /> },
+    { to: "/Farmer/myfarms", label: "My Farms", icon: <GiFarmTractor /> },
     {
       to: "/extension-agent-dashboard",
       label: "My Extension Agent",
       icon: <MdManageAccounts />,
     },
-    { to: "/finance", label: "My Finance", icon: <FaMoneyBillWave /> },
-    { to: "/reports", label: "Reports", icon: <FaFileAlt /> },
+    { to: "/Farmer/finance", label: "My Finance", icon: <FaMoneyBillWave /> },
+    { to: "/Farmer/reports", label: "Reports", icon: <FaFileAlt /> },
     { to: "/agribusiness", label: "Agri-Business", icon: <FaSeedling /> },
   ];
 
@@ -118,7 +118,7 @@ function DashboardAsideBar() {
           </div>
           <div>
             <button
-              className="w-full flex items-center justify-center gap-2 text-white border cursor-pointer border-transparent px-2 mb-4 bg-red-600 py-1 rounded-lg font-semibold hover:bg-red-700 hover:shadow-md transition text-sm sm:text-base duration-200"
+              className="w-full flex items-center justify-center gap-2 text-white border cursor-pointer border-transparent px-1 mb-10 bg-red-600 py-1 mx-1 rounded-lg font-semibold hover:bg-red-700 hover:shadow-md transition text-sm sm:text-base duration-200"
               style={{ transition: "background 0.2s, box-shadow 0.2s" }}
             >
               <FiLogOut className="text-lg transition-colors duration-200 " />

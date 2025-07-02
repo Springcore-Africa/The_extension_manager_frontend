@@ -3,12 +3,12 @@ import DashboardAsideBar from "../components/DashboardAsideBar";
 
 function FarmersDashboard() {
   return (
-    <div className="flex min-h-screen bg-green-50">
+    <div className="flex min-h-screen bg-green-50 h-screen overflow-hidden">
       {/* Asidebar Component */}
       <DashboardAsideBar />
 
       {/* Main Content */}
-      <main className="flex-1 md:p-8 bg-green-700 border-green-700">
+      <main className="flex-1 md:p-8 bg-green-700  border-green-700">
         <div className="bg-green-50 rounded-2xl border-2 border-white my-0 p-6">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
             <h1 className="text-xl md:text-2xl font-bold text-green-800 text-center md:text-left">
