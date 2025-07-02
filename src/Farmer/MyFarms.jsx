@@ -125,7 +125,7 @@ const handleAddFarm = (e) => {
                 {/* Farm Section */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 w-full">
                   {farms.map((farm, idx) => (
-                    <Link to="/farm" className="block" key={idx}>
+                    <Link to="/Farmer/farm" className="block" key={idx}>
                       <div className="bg-white flex-1 shadow p-6 flex flex-col justify-between min-w-[220px] rounded-xl transition-transform duration-200 hover:scale-105 hover:shadow-2xl relative">
                         <div className="flex justify-center mb-4 relative">
                           <img

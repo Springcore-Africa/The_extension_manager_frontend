@@ -1,45 +1,20 @@
-import React from "react";
-import { useFarm } from "../context/FarmContext";
 import DashboardAsideBar from "../components/DashboardAsideBar";
 
 const DisplayReport = () => {
-  const { farms } = useFarm();
 
   return (
-    <div className="flex min-h-screen bg-green-50">
+    <div className="flex min-h-screen h-screen overflow-hidden bg-green-50">
+      {/* Sidebar Component */}
       <DashboardAsideBar />
 
-      <main className="flex-1 p-8 bg-green-100">
-        <h2 className="text-2xl font-bold text-green-800 mb-6">Reports</h2>
-
-        {farms.length === 0 ? (
-          <div className="text-center text-gray-600">
-            <p>No farm reports available yet.</p>
+      {/* Main Content */}
+      <main className="flex-1 md:p-12 bg-green-700 border-green-700 overflow-y-auto">
+        <div className="bg-green-50 rounded-2xl border-2 min-h-screen border-white mx-0 px-6 py-16 sm:py-10 flex flex-col items-center justify-center gap-8">
+          <h1 className="text-2xl font-bold text-green-800 mb-4">Report Details</h1>
+          <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-3xl">
+            <p className="text-gray-600">This is where the report details will be displayed.</p>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {farms.map((farm, index) => (
-              <div
-                key={index}
-                className="bg-white p-5 rounded-xl shadow hover:shadow-lg border-l-4 border-green-500 transition-all duration-200"
-              >
-                <h3 className="text-xl font-bold text-green-700 mb-2">
-                  {farm.name}
-                </h3>
-                <p className="text-gray-700 mb-1">📍 Location: {farm.location}</p>
-                <p className="text-gray-700 mb-1">🌱 Crop: {farm.crop}</p>
-                <p className="text-gray-700 mb-1">📏 Size: {farm.size}</p>
-                {farm.image && (
-                  <img
-                    src={farm.image}
-                    alt="Farm visual"
-                    className="mt-4 w-full h-40 object-cover rounded-md border"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+        </div>
       </main>
     </div>
   );

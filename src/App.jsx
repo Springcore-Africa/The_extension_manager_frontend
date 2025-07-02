@@ -22,6 +22,8 @@ import Farm from './Farmer/Farm';
 import AgriBusiness from './pages/AgriBusiness';
 import InvestorDashboard from "./Dashboards/InvestorDashboard";
 import Reports from "./Farmer/Reports";
+import Finance from "./Farmer/Finance";
+import DisplayReport from "./Farmer/DisplayReport";
 
 function App() {
   
@@ -45,11 +47,13 @@ function App() {
           <Route path="/FarmersDashboard" element={<FarmersDashboard/>} />
           <Route path="/InvestorsSignup" element={<InvestorsSignup/>} />
           <Route path="/resetpassword" element={<ResetPassword/>} />
-          <Route path="/Farmer/myfarms" element={<MyFarms/>} />
+          <Route path="/Farmer/MyFarms" element={<MyFarms/>} />
           <Route path="/Farmer/profile" element={<Profile/>} />
           <Route path="/extension-agent-dashboard" element={<ExtensionAgent/>} />
           <Route path="/Farmer/farm" element={<Farm />} />
           <Route path="/Farmer/reports" element={<Reports />} />
+          <Route path="/Farmer/DisplayReport" element={<DisplayReport />} />
+          <Route path="/Farmer/Finance" element={<Finance />} />
           <Route path="/agribusiness" element={<AgriBusiness />} />
           <Route path="/investordashboard" element={<InvestorDashboard />} />
           {/* <Route path="*" element={<NotFound />} /> */}
