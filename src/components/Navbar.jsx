@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Bgimg from "../assets/logo.jpeg";
 
 function Navbar() {
@@ -20,71 +20,131 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Helper for active link styling
+  // For active link styling
   const navLinkClass =
-    "hover:text-green-200 transition px-2 py-1 rounded-xl";
-  const navLinkActiveClass =
-    "text-white bg-none font-bold shadow underline underline-offset-6";
+  "relative inline-flex items-center hover:text-green-200 transition px-2 py-1 rounded-xl group";
+const navLinkActiveClass = "text-white bg-none font-bold shadow";
 
   return (
     <>
+      <style>
+        {`
+        .nav-underline {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 2px;
+          background: #22c55e;
+          width: 100%;
+          transform: scaleX(0);
+          transform-origin: center;
+          transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+          pointer-events: none;
+        }
+        .group:hover .nav-underline,
+        .group:focus .nav-underline {
+          transform: scaleX(1);
+        }
+        .nav-underline-active {
+          transform: scaleX(1);
+          background: #fff;
+        }
+      `}
+      </style>
       <nav
         className={`w-full pl-4 sm:pl-0 px-6 py-4 flex items-center justify-between fixed top-0 left-0 z-50 transition-colors duration-300 ${
-          scrolled ? "bg-green-800 shadow-xl text-white" : "bg-transparent text-white"
+        scrolled
+          ? "bg-green-800 shadow-xl text-white"
+          : "bg-transparent text-white"
         }`}
       >
         {/* Logo */}
-        <NavLink to="/" className="flex sm:pl-18">
-          <img
-            src={Bgimg}
-            alt="Logo"
-            className="w-12 h-12 object-cover rounded-lg border-2 border-green-600 shadow-md bg-white"
-            style={{ minWidth: 48, minHeight: 48 }}
-          />
-        </NavLink>
+        <Link to="/" className="flex sm:pl-18">
+        <img
+          src={Bgimg}
+          alt="Logo"
+          className="w-12 h-12 object-cover rounded-lg border-2 border-green-600 shadow-md bg-white"
+          style={{ minWidth: 48, minHeight: 48 }}
+        />
+      </Link>
 
         {/* Nav Links */}
         <ul className="hidden md:flex gap-10 text-lg font-medium flex-1 justify-center">
           <li>
             <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
-              }
-            >
+            to="/"
+            end
+            className={({ isActive }) =>
+              `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+            }
+          >
+            <span className="relative">
               Home
-            </NavLink>
+              <span
+                className={`nav-underline ${
+                  window.location.pathname === "/" ? "nav-underline-active" : ""
+                }`}
+              ></span>
+            </span>
+          </NavLink>
           </li>
           <li>
             <NavLink
-              to="/products"
-              className={({ isActive }) =>
-                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
-              }
-            >
+            to="/products"
+            className={({ isActive }) =>
+              `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+            }
+          >
+            <span className="relative">
               Products
-            </NavLink>
+              <span
+                className={`nav-underline ${
+                  window.location.pathname === "/products"
+                    ? "nav-underline-active"
+                    : ""
+                }`}
+              ></span>
+            </span>
+          </NavLink>
           </li>
           <li>
             <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
-              }
-            >
+            to="/about"
+            className={({ isActive }) =>
+              `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+            }
+          >
+            <span className="relative">
               About
-            </NavLink>
+              <span
+                className={`nav-underline ${
+                  window.location.pathname === "/about"
+                    ? "nav-underline-active"
+                    : ""
+                }`}
+              ></span>
+            </span>
+          </NavLink>
           </li>
           <li>
             <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
-              }
-            >
+            to="/contact"
+            className={({ isActive }) =>
+              `${navLinkClass} ${isActive ? navLinkActiveClass : ""}`
+            }
+          >
+            <span className="relative">
               Contact
-            </NavLink>
+              <span
+                className={`nav-underline ${
+                  window.location.pathname === "/contact"
+                    ? "nav-underline-active"
+                    : ""
+                }`}
+              ></span>
+            </span>
+          </NavLink>
           </li>
         </ul>
 
@@ -118,7 +178,11 @@ function Navbar() {
               end
               onClick={handleSidebar}
               className={({ isActive }) =>
-                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+                `transition px-2 py-1 rounded ${
+                  isActive
+                    ? "bg-green-100 text-green-800 font-bold"
+                    : "hover:text-green-500"
+                }`
               }
             >
               Home
@@ -129,7 +193,11 @@ function Navbar() {
               to="/products"
               onClick={handleSidebar}
               className={({ isActive }) =>
-                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+                `transition px-2 py-1 rounded ${
+                  isActive
+                    ? "bg-green-100 text-green-800 font-bold"
+                    : "hover:text-green-500"
+                }`
               }
             >
               Products
@@ -140,7 +208,11 @@ function Navbar() {
               to="/about"
               onClick={handleSidebar}
               className={({ isActive }) =>
-                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+                `transition px-2 py-1 rounded ${
+                  isActive
+                    ? "bg-green-100 text-green-800 font-bold"
+                    : "hover:text-green-500"
+                }`
               }
             >
               About
@@ -151,7 +223,11 @@ function Navbar() {
               to="/contact"
               onClick={handleSidebar}
               className={({ isActive }) =>
-                `transition px-2 py-1 rounded ${isActive ? "bg-green-100 text-green-800 font-bold" : "hover:text-green-500"}`
+                `transition px-2 py-1 rounded ${
+                  isActive
+                    ? "bg-green-100 text-green-800 font-bold"
+                    : "hover:text-green-500"
+                }`
               }
             >
               Contact
@@ -159,7 +235,7 @@ function Navbar() {
           </li>
         </ul>
       </aside>
-      
+
       {/* Overlay */}
       {sidebar && (
         <div

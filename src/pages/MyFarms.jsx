@@ -2,19 +2,12 @@ import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import DashboardAsideBar from "../components/DashboardAsideBar";
 import FarmImage from "../assets/maize-farm.jpg";
+import CornVector from "../assets/corn-vector.png";
+import FarmerDp from "../assets/farmer-dp.jpeg";
 import { Link } from "react-router-dom";
 
 function MyFarms() {
-  // Example farm data
-  const [farms, setFarms] = useState([
-    {
-      name: "Sheffield",
-      location: "Abeokuta",
-      size: "Small (0-2 acres)",
-      crop: "Maize",
-      image: FarmImage,
-    },
-  ]);
+  const [farms, setFarms] = useState([]);
 
   // Modal state
   const [showModal, setShowModal] = useState(false);
@@ -53,7 +46,10 @@ function MyFarms() {
   // Handle add farm
   const handleAddFarm = (e) => {
     e.preventDefault();
-    setFarms((prev) => [...prev, newFarm]);
+    setFarms((prev) => [
+      ...prev,
+      { ...newFarm, image: newFarm.image || FarmImage },
+    ]);
     setNewFarm({ name: "", location: "", size: "", crop: "", image: "" });
     setShowModal(false);
   };
@@ -66,43 +62,107 @@ function MyFarms() {
 
         {/* Main Content */}
         <main className="flex-1 md:p-8 bg-green-700 border-green-700">
-          <div className="bg-green-50 rounded-2xl border-2 border-white my-0 p-6">
-            <div className="flex flex-col md:flex-row justify-end items-center mb-8 gap-4">
-              <button
-                onClick={() => setShowModal(true)}
-                className="bg-green-700 flex items-center gap-2 cursor-pointer text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 text-center"
-              >
-                <span>Add Farm</span>
-                <FaPlus className="text-base" />
-              </button>
-            </div>
-
-            {/* Farm Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8">
-              {farms.map((farm, idx) => (
-                <Link to="/farm" className="block" key={idx}>
-                  <div className="bg-white flex-1 shadow p-6 flex flex-col justify-between min-w-[220px] rounded-xl transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
-                    <div className="flex justify-center mb-4">
-                      <img
-                        src={farm.image}
-                        alt="Farm-img"
-                        className="w-90 h-50 rounded-lg border-1 border-green-600 object-cover"
-                      />
-                    </div>
-                    <p className="text-gray-600 font-semibold pb-4 border-b border-green-100 mb-4 text-center">
-                      {farm.name}
-                    </p>
-                    <div className="flex-1 flex flex-col justify-center">
-                      <ul className="text-green-800 space-y-3 flex flex-col text-center">
-                        <li>{farm.location}</li>
-                        <li>{farm.size}</li>
-                        <li>{farm.crop}</li>
-                      </ul>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+          <div className="bg-green-50 rounded-2xl border-2 border-white my-0 p-6 min-h-screen flex flex-col items-center justify-center">
+            {farms.length === 0 ? (
+              <div className="flex flex-col items-center justify-center w-full h-full py-24">
+                {/* Animated agricultural vector image */}
+                <div className="mb-6">
+                  <img
+                    src={CornVector}
+                    alt="No farms"
+                    className="w-28 h-28 animate-bounce-fast drop-shadow-lg transition-transform duration-500 hover:scale-110"
+                    style={{
+                      animation:
+                        "bounce 1s infinite cubic-bezier(.28,.84,.42,1)",
+                    }}
+                  />
+                  <style>
+                    {`
+                    @keyframes bounce {
+                    0%, 100% { transform: translateY(0);}
+                    20% { transform: translateY(-18px);}
+                    40% { transform: translateY(-28px);}
+                    60% { transform: translateY(-18px);}
+                    80% { transform: translateY(-8px);}
+                    }
+                    .animate-bounce-fast {
+                    animation: bounce 1.1s infinite cubic-bezier(.28,.84,.42,1);
+                    }`}
+                  </style>
+                </div>
+                <h2 className="text-2xl font-bold text-green-700 mb-2 text-center">
+                  You don't have any farms yet.
+                </h2>
+                <p className="text-gray-600 mb-6 text-center max-w-md">
+                  Welcome, you haven't created a farm yet. Click the button
+                  below to add your very first farm and start managing your
+                  crops.
+                </p>
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="bg-green-700 flex items-center gap-2 cursor-pointer text-white py-2 px-6 rounded-lg font-semibold hover:bg-green-600 text-center shadow"
+                >
+                  <span>Add Farm</span>
+                  <FaPlus className="text-base" />
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="flex flex-col md:flex-row justify-end items-center mb-8 gap-4 w-full">
+                  <button
+                    onClick={() => setShowModal(true)}
+                    className="bg-green-700 flex items-center gap-2 cursor-pointer text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 text-center"
+                  >
+                    <span>Add Farm</span>
+                    <FaPlus className="text-base" />
+                  </button>
+                </div>
+                {/* Farm Section */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 w-full">
+                  {farms.map((farm, idx) => (
+                    <Link to="/farm" className="block" key={idx}>
+                      <div className="bg-white flex-1 shadow p-6 flex flex-col justify-between min-w-[220px] rounded-xl transition-transform duration-200 hover:scale-105 hover:shadow-2xl relative">
+                        <div className="flex justify-center mb-4 relative">
+                          <img
+                            src={farm.image}
+                            alt="Farm-img"
+                            className="w-90 h-50 rounded-lg border-1 border-green-600 object-cover"
+                          />
+                          {/* Farmer DP at extreme bottom right */}
+                          <img
+                            src={FarmerDp}
+                            alt="Farmer"
+                            className="absolute"
+                            style={{
+                              width: "56px",
+                              height: "56px",
+                              right: "21px",
+                              bottom: "0",
+                              zIndex: 10,
+                              clipPath: "circle(50% at 50% 50%)",
+                              background: "#fff",
+                              border: "3px solid #fff",
+                              objectFit: "cover",
+                              boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+                            }}
+                          />
+                        </div>
+                        <p className="text-gray-600 font-semibold pb-4 border-b border-green-100 mb-4 text-center">
+                          {farm.name}
+                        </p>
+                        <div className="flex-1 flex flex-col justify-center">
+                          <ul className="text-green-800 space-y-3 flex flex-col text-center">
+                            <li>{farm.location}</li>
+                            <li>{farm.size}</li>
+                            <li>{farm.crop}</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           {/* Modal */}
@@ -219,7 +279,7 @@ function MyFarms() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-900 transition mt-2"
+                    className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold cursor-pointer hover:bg-green-900 transition mt-2"
                   >
                     Add Farm
                   </button>

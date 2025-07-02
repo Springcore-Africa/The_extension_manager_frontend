@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-// import BgFarm from '../assets/wide-farm.jpeg'
+import BgFarm from '../assets/wide-farm.jpeg'
 import { Link } from 'react-router-dom';
 
 const Auth = () => {
@@ -50,7 +50,7 @@ const Auth = () => {
           <h1 className="text-2xl font-bold text-center mb-6">OTP Verification</h1>
 
           {message && (
-            <p className="text-green-600 text-sm text-center mb-4">{message}</p>
+            <p className="text-green-600 text-sm text-center mb-4">{setMessage}</p>
           )}
 
           <div className="flex justify-between mb-4">
@@ -71,10 +71,10 @@ const Auth = () => {
           </div>
 
           {error && (
-            <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+            <p className="text-red-500 text-sm mb-4 text-center">{setError}</p>
           )}
 
-          <Link to = "/Dashboard"><button
+          <Link to = "/FarmersDashboard"><button
             className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition mb-4 cursor-pointer"
           >
             Verify OTP

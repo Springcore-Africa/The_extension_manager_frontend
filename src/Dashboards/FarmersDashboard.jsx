@@ -22,7 +22,7 @@ function FarmersDashboard() {
             </div>
             <Link
               to={"/extension-manager"}
-              className="bg-green-700 cursor-pointer text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 text-center"
+              className="bg-green-700 cursor-pointer text-white py-2 px-4 rounded-lg font-semibold transition hover:bg-green-600 text-center duration-200"
             >
               Extension Agent
             </Link>

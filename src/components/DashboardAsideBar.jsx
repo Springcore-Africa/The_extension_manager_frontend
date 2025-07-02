@@ -14,8 +14,10 @@ import { MdManageAccounts } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 
 function DashboardAsideBar() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
   const location = useLocation();
+
+  const handleSidebar = () => setSidebar((prev) => !prev);
 
   // Sidebar Navlinks
   const navLinks = [
@@ -23,7 +25,7 @@ function DashboardAsideBar() {
     { to: "/profile", label: "My Profile", icon: <FaUser /> },
     { to: "/myfarms", label: "My Farms", icon: <GiFarmTractor /> },
     {
-      to: "/extension-manager",
+      to: "/extension-agent-dashboard",
       label: "My Extension Agent",
       icon: <MdManageAccounts />,
     },
@@ -34,53 +36,32 @@ function DashboardAsideBar() {
 
   return (
     <>
-      {/* Hamburger menu for mobile */}
+      {/* Hamburger menu for mobile view */}
       <button
         className="md:hidden absolute top-4 left-4 z-30 bg-white p-2 rounded-lg shadow-lg"
-        onClick={() => setSidebarOpen(true)}
+        onClick={handleSidebar}
         aria-label="Open sidebar"
       >
-        <svg
-          className="w-6 h-6 text-green-700"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
+        <span className="block w-6 h-0.5 bg-green-700 rounded mb-1"></span>
+        <span className="block w-6 h-0.5 bg-green-700 rounded mb-1"></span>
+        <span className="block w-6 h-0.5 bg-green-700 rounded"></span>
       </button>
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 w-64 bg-green-700 text-white flex-col p-2 transform transition-transform duration-300
-          md:static md:flex md:translate-x-0
-          ${sidebarOpen ? "flex translate-x-0" : "hidden -translate-x-full"}
+        className={`
+          fixed inset-y-0 left-0 z-40 w-64 bg-green-700 text-white shadow-lg
+          transform transition-transform duration-300 flex flex-col
+          md:static md:translate-x-0 md:shadow-none md:flex
+          ${sidebar ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        {/* Close button for mobile */}
+        {/* Close button for mobile view */}
         <button
-          className="md:hidden absolute top-4 right-4 text-white bg-green-800 rounded-full p-1"
-          onClick={() => setSidebarOpen(false)}
-          aria-label="Close sidebar"
+          className="close-btn text-3xl absolute top-4 right-6 text-white hover:text-green-900 md:hidden"
+          onClick={handleSidebar}
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          &times;
         </button>
 
         {/* Logo */}
@@ -104,7 +85,7 @@ function DashboardAsideBar() {
                 alt="Profile"
                 className="rounded-full border-white border-2 w-16 h-16 mb-2 object-cover cursor-pointer"
                 onClick={() =>
-                  document.getElementById("profilePicInput").click()
+                  document.getElementById("profilePicInput")?.click()
                 }
                 title="Click to change profile picture"
               />
@@ -118,23 +99,29 @@ function DashboardAsideBar() {
                   key={item.to}
                   to={item.to}
                   className={`flex items-center gap-2 w-full text-left font-semibold cursor-pointer rounded-md px-3 py-1.5 transition
-                    ${
-                      location.pathname === item.to
-                        ? "bg-gray-50 text-green-700 shadow font-bold"
-                        : "hover:bg-gray-200 hover:text-green-700"
-                    }
-                  `}
-                  onClick={() => setSidebarOpen(false)}
+        ${
+          location.pathname === item.to
+            ? "bg-gray-50 text-green-700 shadow font-bold"
+            : "hover:bg-green-600 hover:text-white duration-200"
+        }
+        group
+      `}
+                  onClick={() => setSidebar(false)}
                 >
-                  {item.icon}
+                  <span className="transition-colors duration-200 group-hover:text-yellow-300">
+                    {item.icon}
+                  </span>
                   {item.label}
                 </Link>
               ))}
             </nav>
           </div>
           <div>
-            <button className="w-full flex items-center justify-center gap-2 text-white border cursor-pointer border-transparent px-2 mb-4 bg-red-600 py-1 rounded-lg font-semibold hover:bg-red-500 hover:text-white transition text-sm sm:text-base">
-              <FiLogOut className="text-lg" />
+            <button
+              className="w-full flex items-center justify-center gap-2 text-white border cursor-pointer border-transparent px-2 mb-4 bg-red-600 py-1 rounded-lg font-semibold hover:bg-red-700 hover:shadow-md transition text-sm sm:text-base duration-200"
+              style={{ transition: "background 0.2s, box-shadow 0.2s" }}
+            >
+              <FiLogOut className="text-lg transition-colors duration-200 " />
               Logout
             </button>
           </div>
@@ -142,10 +129,10 @@ function DashboardAsideBar() {
       </aside>
 
       {/* Overlay for mobile sidebar */}
-      {sidebarOpen && (
+      {sidebar && (
         <div
           className="fixed inset-0 bg-black/70 bg-opacity-40 z-30 md:hidden"
-          onClick={() => setSidebarOpen(false)}
+          onClick={handleSidebar}
         />
       )}
     </>

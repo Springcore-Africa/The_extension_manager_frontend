@@ -4,7 +4,6 @@ import farm from '../assets/farm.jpeg';
 import one from '../assets/number-1.png';
 import two from '../assets/number-2.png';
 import three from '../assets/number-3.png';
-import four from '../assets/number-4.png';
 import five from '../assets/number-5.png';
 import tick from '../assets/checkmark.png';
 import { useFormData } from "../context/FormContext";
@@ -44,7 +43,7 @@ const Demograph = () => {
     e.preventDefault();
     if (validate()) {
       updateFormSection('demograph', formData);
-      navigate('/SignUpComp/ResidentialAdd');
+      navigate('/FarmerSignUpComp/ResidentialAdd');
     } else {
       alert('Please complete all fields before continuing.');
     };
@@ -64,7 +63,7 @@ const Demograph = () => {
             <div className="space-y-6">
               <span className="flex items-center gap-3">
                 <img src={one} alt="1" className="w-6 h-6" />
-                <Link to='/SignUpComp/Personal' className="flex items-center gap-2">
+                <Link to='/FarmerSignUpComp/Personal' className="flex items-center gap-2">
                   <span>Personal Information</span>
                   <img src={tick} alt="tick" className="h-5 w-5" />
                 </Link>
@@ -75,15 +74,11 @@ const Demograph = () => {
               </span>
               <span className="flex items-center gap-3 text-white/70">
                 <img src={three} alt="3" className="w-6 h-6" />
-                <Link to='/SignUpComp/ResidentialAdd'>Residential Address</Link>
-              </span>
-              <span className="flex items-center gap-3 text-white/70">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <Link to='/SignUpComp/FarmingBg'>Farming Background</Link>
+                <Link to='/FarmerSignUpComp/ResidentialAdd'>Residential Address</Link>
               </span>
               <span className="flex items-center gap-3 text-white/70">
                 <img src={five} alt="5" className="w-6 h-6" />
-                <Link to='/SignUpComp/RS'>Review and Submit</Link>
+                <Link to='/FarmerSignUpComp/RS'>Review and Submit</Link>
               </span>
             </div>
             <Link to='/' className='cursor-pointer'>
@@ -132,7 +127,7 @@ const Demograph = () => {
             name="children"
             value={formData.children}
             onChange={handleChange}
-            className="block w-full mb-3 p-2 border rounded border border-gray-300"
+            className="block w-full mb-3 p-2 border rounded border-gray-300"
           >
             <option value="" disabled>Select number of children</option>
             <option value="0">0</option>
@@ -149,7 +144,7 @@ const Demograph = () => {
             name="state"
             value={formData.state}
             onChange={handleChange}
-            className="block w-full mb-3 p-2 border rounded border border-gray-300"
+            className="block w-full mb-3 p-2 border rounded border-gray-300"
           >
             <option value="" disabled>Select state</option>
             <option value="Kano">Kano</option>
@@ -165,7 +160,7 @@ const Demograph = () => {
             name="localGov"
             value={formData.localGov}
             onChange={handleChange}
-            className="block w-full mb-4 p-2 border rounded border border-gray-300"
+            className="block w-full mb-4 p-2 border rounded border-gray-300"
           >
             <option value="" disabled>Select local government</option>
             <option value="Fagge">Fagge</option>
@@ -179,7 +174,7 @@ const Demograph = () => {
           <div className="flex justify-between gap-3 mt-6">
             <button
               type="button"
-              onClick={() => navigate('/SignUpComp/Personal')}
+              onClick={() => navigate('/FarmerSignUpComp/Personal')}
               className="bg-white border border-green-600 text-green-700 p-2 rounded-lg w-[150px]"
             >
               Back

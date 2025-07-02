@@ -5,7 +5,6 @@ import farm from '../assets/farm.jpeg';
 import one from '../assets/number-1.png';
 import two from '../assets/number-2.png';
 import three from '../assets/number-3.png';
-import four from '../assets/number-4.png';
 import five from '../assets/number-5.png';
 import tick from '../assets/checkmark.png';
 
@@ -42,7 +41,7 @@ const ResidentialAdd = () => {
     e.preventDefault();
     if (validate()) {
       updateFormSection('address', formData); // ✅ Save to correct section
-      navigate('/SignUpComp/FarmingBg');
+      navigate('/FarmerSignUpComp/RS');
     } else {
       alert('Please complete all required fields.');
     }
@@ -63,14 +62,14 @@ const ResidentialAdd = () => {
             <div className="space-y-6">
               <span className="flex items-center gap-3">
                 <img src={one} alt="1" className="w-6 h-6" />
-                <Link to='/SignUpComp/Personal' className="flex items-center gap-2">
+                <Link to='/FarmerSignUpComp/Personal' className="flex items-center gap-2">
                   <span>Personal Information</span>
                   <img src={tick} alt="tick" className="h-5 w-5" />
                 </Link>
               </span>
               <span className="flex items-center gap-3">
                 <img src={two} alt="2" className="w-6 h-6" />
-                <Link to='/SignUpComp/Demograph' className="flex items-center gap-2">
+                <Link to='/FarmerSignUpComp/Demograph' className="flex items-center gap-2">
                   <span>Demographic</span>
                   <img src={tick} alt="tick" className="h-5 w-5" />
                 </Link>
@@ -80,12 +79,8 @@ const ResidentialAdd = () => {
                 <span className="font-semibold">Residential Address</span>
               </span>
               <span className="flex items-center gap-3 text-white/70">
-                <img src={four} alt="4" className="w-6 h-6" />
-                <Link to='/SignUpComp/FarmingBg'>Farming Background</Link>
-              </span>
-              <span className="flex items-center gap-3 text-white/70">
                 <img src={five} alt="5" className="w-6 h-6" />
-                <Link to='/SignUpComp/RS'>Review and Submit</Link>
+                <Link to='/FarmerSignUpComp/RS'>Review and Submit</Link>
               </span>
             </div>
 
@@ -173,7 +168,7 @@ const ResidentialAdd = () => {
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <button
               type="button"
-              onClick={() => navigate('/SignUpComp/Demograph')}
+              onClick={() => navigate('/FarmerSignUpComp/Demograph')}
               className="bg-white text-green-700 border border-green-600 rounded-lg px-4 py-2 w-full sm:w-[150px]"
             >
               Back

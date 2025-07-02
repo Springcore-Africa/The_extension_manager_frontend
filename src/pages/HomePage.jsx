@@ -178,7 +178,7 @@ function HomePage() {
               agricultural partner"
             </h1>
             <Link to="/contact">
-              <button className="bg-green-800 text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-green-600 transition text-lg font-semibold shadow-lg w-full sm:w-auto hover:scale-105 duration-300">
+              <button className="bg-green-800 text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-green-600 transition text-lg font-semibold shadow-lg w-full sm:w-auto duration-300">
                 Contact Us
               </button>
             </Link>

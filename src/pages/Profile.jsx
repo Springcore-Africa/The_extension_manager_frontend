@@ -8,14 +8,13 @@ function Profile() {
 
   // Farmer Profile Data
   const [farmer, setFarmer] = useState({
-    firstname: "Elvis",
-    lastname: "Nwachukwu",
-    email: "elvis.nwachukwu@email.com",
-    phone: "+234 803 123 4567",
-    location: "Enugu, Nigeria",
-    designation: "Farmer",
-    description:
-      "Experienced farmer specializing in maize and yam cultivation. Passionate about sustainable agriculture and community development. Always looking to improve farming techniques and yield. Enjoys sharing knowledge with fellow farmers and participating in agricultural workshops.",
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    location: "",
+    designation: "",
+    description: "",
     role: "",
     gender: "",
     dob: "",
@@ -29,6 +28,9 @@ function Profile() {
     bank: "",
     accountNumber: "",
   });
+
+  // Success modal state
+  const [showSuccess, setShowSuccess] = useState(false);
 
   // Handle profile picture change
   const handleProfilePicChange = (e) => {
@@ -52,8 +54,12 @@ function Profile() {
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit logic here
-    alert("Account updated successfully!");
+    setShowSuccess(true);
+  };
+
+  // Update profile card info after modal closes
+  const handleCloseSuccess = () => {
+    setShowSuccess(false);
   };
 
   return (
@@ -66,7 +72,7 @@ function Profile() {
         <main className="flex-1 md:p-8 bg-green-700 border-green-700">
           <div className="bg-green-50 rounded-2xl border-2 border-white mx-0 px-6 py-10 sm:py-10 flex flex-col lg:flex-row items-start justify-center gap-8">
             {/* Farmer Profile Card */}
-            <div className="bg-white shadow p-6 rounded-lg flex flex-col items-center w-full max-w-xs mb-8 lg:mb-0">
+            <div className="bg-white shadow p-6 rounded-lg flex flex-col items-center w-full max-w-xs mt-8 mb-5 ml-6 lg:mb-0">
               <div className="relative group mb-4">
                 <img
                   src={profilePic}
@@ -112,7 +118,9 @@ function Profile() {
                   </span>
                 </div>
                 <div className="flex items-center justify-between mt-3">
-                  <span className="text-gray-600 font-medium">Designation:</span>
+                  <span className="text-gray-600 font-medium">
+                    Designation:
+                  </span>
                   <span className="text-gray-900 text-bold italic">
                     {farmer.designation}
                   </span>
@@ -283,6 +291,32 @@ function Profile() {
                 </div>
                 <div>
                   <label className="block text-green-800 font-semibold mb-1">
+                    Designation
+                  </label>
+                  <input
+                    type="text"
+                    name="designation"
+                    value={farmer.designation}
+                    onChange={handleInputChange}
+                    className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    required
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-green-800 font-semibold mb-1">
+                    Description
+                  </label>
+                  <textarea
+                    name="description"
+                    value={farmer.description}
+                    onChange={handleInputChange}
+                    className="w-full p-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    rows={3}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-green-800 font-semibold mb-1">
                     BVN
                   </label>
                   <input
@@ -332,7 +366,7 @@ function Profile() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-900 transition mt-4"
+                className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold cursor-pointer hover:bg-green-900 transition mt-4"
               >
                 Update Account
               </button>
@@ -340,6 +374,57 @@ function Profile() {
           </div>
         </main>
       </div>
+
+      {/* Success Modal */}
+      {showSuccess && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full flex flex-col items-center relative">
+            <button
+              className="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-xl font-bold"
+              onClick={handleCloseSuccess}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <svg
+              className="w-16 h-16 text-green-600 mb-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="#dcfce7"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12l2 2 4-4"
+                stroke="#16a34a"
+                strokeWidth="2.5"
+                fill="none"
+              />
+            </svg>
+            <h2 className="text-xl font-bold text-green-700 mb-2 text-center">
+              Profile Updated!
+            </h2>
+            <p className="text-gray-700 text-center mb-4">
+              Your farmer profile has been updated successfully.
+            </p>
+            <button
+              onClick={handleCloseSuccess}
+              className="bg-green-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-800 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
