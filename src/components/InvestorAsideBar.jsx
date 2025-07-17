@@ -22,16 +22,12 @@ function InvestorAsideBar() {
   // Sidebar Navlinks
   const navLinks = [
     { to: "/investordashboard", label: "Home", icon: <FaHome /> },
-    { to: "#", label: "My Profile", icon: <FaUser /> },
-    { to: "#", label: "Farmer", icon: <FaFileAlt /> },
-    { to: "#", label: "My Farms", icon: <GiFarmTractor /> },
-    { to: "#", label: "Agri-Business", icon: <FaSeedling /> },
-    {
-      to: "/#",
-      label: "Ongoing Investments",
-      icon: <MdManageAccounts />,
-    },
-    { to: "/#", label: "Available Investments", icon: <FaMoneyBillWave /> },
+    { to: "/Investors/IProfile", label: "My Profile", icon: <FaUser /> },
+    { to: "/Investors/Farmers", label: "Farmers", icon: <FaFileAlt /> },
+    { to: "/Investors/Farms", label: "Farms", icon: <GiFarmTractor /> },
+    { to: "/Investors/Agri_Business", label: "Agri-Business", icon: <FaSeedling /> },
+    {to: "/Investors/OngoingInvestments", label: "Ongoing Investments", icon: <MdManageAccounts /> },
+    { to: "/Investors/AvailableInvestments", label: "Available Investments", icon: <FaMoneyBillWave /> },
   ];
 
   return (
@@ -105,7 +101,7 @@ function InvestorAsideBar() {
                       ${
                         location.pathname === item.to
                           ? "bg-gray-50 text-green-700 shadow font-bold"
-                          : "hover:bg-green-600 hover:text-white duration-200"
+                          : "hover:bg-green-500 hover:text-yellow-300 duration-200"
                       }
                       group
                     `}

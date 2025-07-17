@@ -1,77 +1,61 @@
 import React from "react";
 import InvestorAsideBar from "../components/InvestorAsideBar";
 
-const dummyFarms = [
+const availableFarms = [
   {
-    id: "#F102",
-    name: "GreenField Agro",
-    location: "Ibadan, Oyo State",
-    date: "04 Jul 2025",
-    amount: "₦850,000",
-    status: "Active",
+    id: "#AF101",
+    name: "Sunshine Agro",
+    location: "Ilorin, Kwara State",
+    type: "Maize Farming",
+    availability: "Available",
+    fundingNeeded: "₦500,000",
   },
   {
-    id: "#F103",
-    name: "AquaGrow Farm",
-    location: "Abeokuta, Ogun State",
-    date: "15 Jun 2025",
-    amount: "₦420,000",
-    status: "Pending",
+    id: "#AF102",
+    name: "Riverfront Fields",
+    location: "Calabar, Cross River",
+    type: "Fish Farming",
+    availability: "Low",
+    fundingNeeded: "₦750,000",
   },
   {
-    id: "#F104",
-    name: "Palm Valley",
-    location: "Nsukka, Enugu State",
-    date: "02 Jul 2025",
-    amount: "₦600,000",
-    status: "Active",
+    id: "#AF103",
+    name: "Hillside Harvest",
+    location: "Jos, Plateau State",
+    type: "Tomato Farming",
+    availability: "Available",
+    fundingNeeded: "₦600,000",
   },
   {
-    id: "#F105",
-    name: "Green Ridge Ranch",
-    location: "Lokoja, Kogi State",
-    date: "29 Jun 2025",
-    amount: "₦990,000",
-    status: "Completed",
-  },
-  {
-    id: "#F105",
-    name: "Green Ridge Ranch",
-    location: "Lokoja, Kogi State",
-    date: "29 Jun 2025",
-    amount: "₦990,000",
-    status: "Completed",
-  },
-  {
-    id: "#F105",
-    name: "Red Ridge Ranch",
-    location: "Lokoja, Kogi State",
-    date: "29 Jun 2025",
-    amount: "₦990,000",
-    status: "Pending",
+    id: "#AF104",
+    name: "Golden Palm Estate",
+    location: "Benin, Edo State",
+    type: "Palm Oil",
+    availability: "Closed",
+    fundingNeeded: "₦1,200,000",
   },
 ];
 
-const getStatusColor = (status) => {
+const getAvailabilityColor = (status) => {
   switch (status) {
-    case "Active":
+    case "Available":
       return "text-green-600 bg-green-100";
-    case "Pending":
+    case "Low":
       return "text-yellow-600 bg-yellow-100";
-    case "Completed":
-      return "text-gray-500 bg-gray-100";
+    case "Closed":
+      return "text-red-600 bg-red-100";
     default:
-      return "text-gray-500 bg-gray-100";
+      return "text-gray-600 bg-gray-100";
   }
 };
 
-const OngoingInvestments = () => {
+const Farms = () => {
   return (
     <div className="flex min-h-screen bg-green-50">
       <InvestorAsideBar />
       <main className="flex-1 p-6 md:p-10">
         <h1 className="text-2xl font-bold text-green-800 mb-6">
-          Ongoing Investments
+          Available Farms
         </h1>
 
         <div className="bg-white rounded-xl shadow-md overflow-x-auto">
@@ -81,14 +65,14 @@ const OngoingInvestments = () => {
                 <th className="px-6 py-3">Farm ID</th>
                 <th className="px-6 py-3">Farm Name</th>
                 <th className="px-6 py-3">Location</th>
-                <th className="px-6 py-3">Start Date</th>
-                <th className="px-6 py-3">Investment</th>
+                <th className="px-6 py-3">Farm Type</th>
+                <th className="px-6 py-3">Funding Needed</th>
                 <th className="px-6 py-3">Status</th>
                 <th className="px-6 py-3 text-right">Action</th>
               </tr>
             </thead>
             <tbody className="text-sm text-gray-700">
-              {dummyFarms.map((farm) => (
+              {availableFarms.map((farm) => (
                 <tr
                   key={farm.id}
                   className="border-b hover:bg-green-50 transition duration-200"
@@ -96,20 +80,20 @@ const OngoingInvestments = () => {
                   <td className="px-6 py-4 font-medium">{farm.id}</td>
                   <td className="px-6 py-4">{farm.name}</td>
                   <td className="px-6 py-4">{farm.location}</td>
-                  <td className="px-6 py-4">{farm.date}</td>
-                  <td className="px-6 py-4">{farm.amount}</td>
+                  <td className="px-6 py-4">{farm.type}</td>
+                  <td className="px-6 py-4">{farm.fundingNeeded}</td>
                   <td className="px-6 py-4">
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(
-                        farm.status
+                      className={`px-3 py-1 rounded-full text-xs font-semibold ${getAvailabilityColor(
+                        farm.availability
                       )}`}
                     >
-                      {farm.status}
+                      {farm.availability}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <button className="text-green-700 hover:text-green-900 font-semibold text-sm">
-                      View Details
+                    <button className="hover:bg-red-500 hover:text-white text-green-700 border p-2 rounded-xl cursor-pointer font-bold text-sm">
+                      Close Farm
                     </button>
                   </td>
                 </tr>
@@ -118,7 +102,7 @@ const OngoingInvestments = () => {
           </table>
 
           <div className="p-4 flex justify-between items-center text-sm text-gray-500">
-            <p>Showing 1-4 of {dummyFarms.length}</p>
+            <p>Showing 1–4 of {availableFarms.length}</p>
             <div className="space-x-2">
               <button className="px-2 py-1 rounded bg-green-100 text-green-700 font-semibold hover:bg-green-200">
                 &lt;
@@ -140,4 +124,4 @@ const OngoingInvestments = () => {
   );
 };
 
-export default OngoingInvestments;
+export default Farms;

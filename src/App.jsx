@@ -17,13 +17,33 @@ import Products from './pages/Products';
 import ResetPassword from './pages/ResetPassword';
 import MyFarms from './Farmer/MyFarms';
 import Profile from './Farmer/Profile';
-import ExtensionAgent from './Dashboards/ExtensionAgentDashboard';
 import Farm from './Farmer/Farm';
 import AgriBusiness from './pages/AgriBusiness';
 import InvestorDashboard from "./Dashboards/InvestorDashboard";
 import Reports from "./Farmer/Reports";
 import Finance from "./Farmer/Finance";
 import DisplayReport from "./Farmer/DisplayReport";
+import IProfile from "./Investors/IProfile";
+import Farmers from "./Investors/Farmers";
+import Farms from "./Investors/Farms";
+import Agri_Business from "./Investors/Agri_Business";
+import OngoingInvestments from "./Investors/OngoingInvestments";
+import AvailableInvestments from "./Investors/AvailableInvestments";
+import ExtensionAgentDashboard from "./Dashboards/ExtensionAgentDashboard";
+import Efarms from "./ExtensionManager/Efarms";
+import Eprofile from "./ExtensionManager/Eprofile";
+import EagriBussiness from "./ExtensionManager/EagriBussiness";
+import Ereports from "./ExtensionManager/Ereports";
+import Efinance from "./ExtensionManager/Efinance";
+import AgroProcessorDashboard from "./Dashboards/AgroProcessorDashboard";
+import Aprofile from "./AgroProcessor/Aprofile";
+import Aproducts from "./AgroProcessor/Aproducts";
+import Afinance from "./AgroProcessor/Afinance";
+import Areport from "./AgroProcessor/Areport";
+import Aagribusiness from "./AgroProcessor/Aagribusiness";
+import Aextensionworkers from "./AgroProcessor/Aextensionworkers";
+
+
 
 function App() {
   
@@ -49,13 +69,31 @@ function App() {
           <Route path="/resetpassword" element={<ResetPassword/>} />
           <Route path="/Farmer/MyFarms" element={<MyFarms/>} />
           <Route path="/Farmer/profile" element={<Profile/>} />
-          <Route path="/extension-agent-dashboard" element={<ExtensionAgent/>} />
           <Route path="/Farmer/farm" element={<Farm />} />
           <Route path="/Farmer/reports" element={<Reports />} />
           <Route path="/Farmer/DisplayReport" element={<DisplayReport />} />
           <Route path="/Farmer/Finance" element={<Finance />} />
           <Route path="/agribusiness" element={<AgriBusiness />} />
           <Route path="/investordashboard" element={<InvestorDashboard />} />
+          <Route path="/Investors/IProfile" element={<IProfile />} />
+          <Route path="/Investors/Farmers" element={<Farmers />} />
+          <Route path="/Investors/Farms" element={<Farms />} />
+          <Route path="/Investors/Agri_Business" element={<Agri_Business />} />
+          <Route path="/Investors/OngoingInvestments" element={<OngoingInvestments />} />
+          <Route path="/Investors/AvailableInvestments" element={<AvailableInvestments />} />
+          <Route path="/ExtensionAgentDashboard" element={<ExtensionAgentDashboard />} />
+          <Route path="/ExtensionManager/Efarms" element={<Efarms />} />
+          <Route path="/ExtensionManager/Eprofile" element={<Eprofile />} />
+          <Route path="/ExtensionManager/Ereports" element={<Ereports />} />
+          <Route path="/ExtensionManager/Efinance" element={<Efinance />} />
+          <Route path="/ExtensionManager/EagriBusiness" element={<EagriBussiness />} />
+          <Route path="/AgroProcessorDashboard" element={<AgroProcessorDashboard />} />
+          <Route path="/AgroProcessor/Aprofile" element={<Aprofile />} />
+          <Route path="/AgroProcessor/Aproducts" element={<Aproducts />} />
+          <Route path="/AgroProcessor/Afinance" element={<Afinance />} />
+          <Route path="/AgroProcessor/Areport" element={<Areport />} />
+          <Route path="/AgroProcessor/Aagribusiness" element={<Aagribusiness />} />
+          <Route path="/AgroProcessor/Aextensionworkers" element={<Aextensionworkers />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       
